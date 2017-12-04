@@ -238,7 +238,140 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><a href="#lambda-&#x8868;&#x8FBE;&#x5F0F;">Lambda &#x8868;&#x8FBE;&#x5F0F;</a></li><ul><li><a href="#&#x5B9A;&#x4E49;">&#x5B9A;&#x4E49;</a></li><li><a href="#lambda-&#x5F62;&#x5F0F;">Lambda &#x5F62;&#x5F0F;</a></li><li><a href="#&#x4F7F;&#x7528;-lambda">&#x4F7F;&#x7528; Lambda</a></li></ul></ul></div><a href="#lambda-&#x8868;&#x8FBE;&#x5F0F;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="lambda-&#x8868;&#x8FBE;&#x5F0F;"><a name="lambda-&#x8868;&#x8FBE;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#lambda-&#x8868;&#x8FBE;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>Lambda &#x8868;&#x8FBE;&#x5F0F;</h1>
+<!-- toc -->
+<ul>
+<li><a href="#&#x5B9A;&#x4E49;">&#x5B9A;&#x4E49;</a></li>
+<li><a href="#lambda-&#x5F62;&#x5F0F;">Lambda &#x5F62;&#x5F0F;</a></li>
+<li><a href="#&#x4F7F;&#x7528;-lambda">&#x4F7F;&#x7528; Lambda</a></li>
+</ul>
+<!-- tocstop -->
+<h2 id="&#x5B9A;&#x4E49;"><a name="&#x5B9A;&#x4E49;" class="anchor-navigation-ex-anchor" href="#&#x5B9A;&#x4E49;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B9A;&#x4E49;</h2>
+<p>Lambda(&#x3BB;) &#x8868;&#x8FBE;&#x5F0F;&#x662F;&#x4E00;&#x79CD;&#x5728; <em>&#x88AB;&#x8C03;&#x7528;&#x7684;&#x4F4D;&#x7F6E;</em> &#x6216;&#x8005; <em>&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;&#x51FD;&#x6570;&#x7684;&#x4F4D;&#x7F6E;</em> <strong>&#x5B9A;&#x4E49;&#x533F;&#x540D;&#x51FD;&#x6570;&#x5BF9;&#x8C61;</strong> &#x7684;&#x7B80;&#x4FBF;&#x65B9;&#x6CD5;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x5173;&#x4E8E; Lambda &#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x51E0;&#x4E2A;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>&#x533F;&#x540D;&#xFF08;Anonymous&#xFF09; - &#x4E0D;&#x50CF;&#x5176;&#x4ED6;&#x666E;&#x901A;&#x65B9;&#x6CD5;&#x90A3;&#x6837;&#x5177;&#x6709;&#x540D;&#x5B57;</li>
+<li>&#x51FD;&#x6570;&#xFF08;Function&#xFF09; -  Lambda &#x8868;&#x8FBE;&#x5F0F;&#x4E0D;&#x50CF;&#x666E;&#x901A;&#x65B9;&#x6CD5;&#x90A3;&#x6837;&#x5C5E;&#x4E8E;&#x67D0;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x7C7B;&#xFF0C;&#x5B83;&#x662F;&#x72EC;&#x7ACB;&#x4E8E;&#x7C7B;&#x5B58;&#x5728;&#x7684;&#x3002;&#x4F46;&#x662F;&#x548C;&#x65B9;&#x6CD5;&#x4E00;&#x6837;&#xFF0C;Lambda &#x8868;&#x8FBE;&#x5F0F;&#x6709;&#x53C2;&#x6570;&#x5217;&#x8868;&#x3001;&#x51FD;&#x6570;&#x4E3B;&#x4F53;&#x548C;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x8FD8;&#x53EF;&#x80FD;&#x6709;&#x53EF;&#x4EE5;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#x5217;&#x8868;&#x3002;</li>
+<li>&#x4F20;&#x9012;&#xFF08;Passed around&#xFF09;- Lambda &#x8868;&#x8FBE;&#x5F0F;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;&#x65B9;&#x6CD5;&#x6216;&#x8005;&#x5B58;&#x50A8;&#x5728;&#x53D8;&#x91CF;&#x4E2D;&#x3002;</li>
+<li>&#x7B80;&#x6D01;&#xFF08;Concise&#xFF09;- &#x65E0;&#x9700;&#x50CF;&#x533F;&#x540D;&#x7C7B;&#x90A3;&#x6837;&#x5199;&#x5F88;&#x591A;&#x7684;&#x6A21;&#x677F;&#x4EE3;&#x7801;&#x3002;</li>
+</ul>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x793A;&#x4F8B;</p>
+<pre class="language-"><code class="lang-java"><span class="token annotation punctuation">@FunctionalInterface</span>
+<span class="token keyword">interface</span> <span class="token class-name">Calculator</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> <span class="token function">cal</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloWorld</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Calculator c <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>c<span class="token punctuation">.</span><span class="token function">cal</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        c <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> a <span class="token operator">*</span> b<span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>c<span class="token punctuation">.</span><span class="token function">cal</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="lambda-&#x5F62;&#x5F0F;"><a name="lambda-&#x5F62;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#lambda-&#x5F62;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>Lambda &#x5F62;&#x5F0F;</h2>
+<p>Lambda &#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x57FA;&#x672C;&#x5F62;&#x5F0F;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre class="language-"><code>(argument list) -&gt; code
+</code></pre><p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<p>     <a href="../images/lambda/&#x5F62;&#x5F0F;.png" rel="grouped" title="" target="_self" class="fancybox">
+       <img src="../images/lambda/&#x5F62;&#x5F0F;.png" alt="">
+     </a></p>
+<p>&#x5982;&#x4E0A;&#x6240;&#x793A;&#xFF1A; Lambda &#x8868;&#x8FBE;&#x5F0F;&#x5305;&#x542B;&#x4E09;&#x4E2A;&#x90E8;&#x5206;&#xFF1A;</p>
+<ul>
+<li>&#x53C2;&#x6570;&#x5217;&#x8868;&#xFF08;A list of parameters&#xFF09; - &#x4E0A;&#x56FE;&#x4E2D;&#x4E3A; <code>(Apple a1, Apple a2)</code></li>
+<li>&#x7BAD;&#x5934;&#xFF08;An arrow&#xFF09; - &#x628A;&#x53C2;&#x6570;&#x5217;&#x8868;&#x548C; Lambda &#x4E3B;&#x4F53;&#x5206;&#x9694;&#x5F00;</li>
+<li>Lambda &#x4E3B;&#x4F53;&#xFF08;The body of the lambda&#xFF09; - &#x4E0A;&#x56FE;&#x4E2D;&#x4E3A; <code>a1.getWeight().compareTo(a2.getWeight())</code>&#xFF0C;&#x8BE5; Lambda &#x4E3B;&#x4F53;&#x4F1A;&#x8FD4;&#x56DE; compareTo &#x7684;&#x7ED3;&#x679C;&#x3002;</li>
+</ul>
+<p>Lambda &#x51FD;&#x6570;&#x7684;&#x4E3B;&#x4F53;&#x53EF;&#x4EE5;&#x662F;&#x8868;&#x8FBE;&#x5F0F;&#xFF08;expression&#xFF09;&#x6216;&#x8005;&#x8BED;&#x53E5;&#xFF08;statement&#xFF09;&#xFF0C;&#x6240;&#x4EE5; Lambda &#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x503C;&#x6709;&#x4E0B;&#x9762;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#xFF1A;</p>
+<ul>
+<li>&#x5982;&#x679C; Lambda &#x4E3B;&#x4F53;&#x4E3A;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x90A3;&#x4E48; Lambda &#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x5C31;&#x662F;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x8BA1;&#x7B97;&#x503C;</li>
+<li>&#x5982;&#x679C; Lambda &#x4E3B;&#x4F53;&#x4E3A;&#x8BED;&#x53E5;&#xFF0C;&#x90A3;&#x4E48; Lambda &#x8FD4;&#x56DE;&#x503C;&#x5C31;&#x662F;&#x8BED;&#x53E5;&#x7684;&#x8FD4;&#x56DE;&#x503C;</li>
+</ul>
+<p>&#x5173;&#x4E8E;&#x8BED;&#x53E5;&#x548C;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x533A;&#x522B;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003; <a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/expressions.html" target="_blank">&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;</a>&#xFF0C;&#x8FD9;&#x91CC;&#x7B80;&#x5355;&#x8BF4;&#x4E00;&#x4E0B;&#xFF1A;&#x5047;&#x8BBE;&#x6709;&#x4E00;&#x6761;&#x8BED;&#x53E5; <code>int c = a + b;</code>&#xFF0C;&#x90A3;&#x4E48;&#x8868;&#x8FBE;&#x5F0F;&#x5C31;&#x662F;&#x6307; <code>c = a + b</code>&#xFF0C;&#x5373;&#x4E0D;&#x5305;&#x542B; <code>int</code> &#x548C; <code>;</code>&#xFF0C;&#x6BCF;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x90FD;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;&#x8BA1;&#x7B97;&#x503C;&#xFF08;void &#x4E5F;&#x7B97;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684;&#x8BA1;&#x7B97;&#x503C;&#xFF09;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#x7EC6;&#x5206;&#x4E00;&#x4E0B;&#xFF0C;Lambda &#x8868;&#x8FBE;&#x5F0F;&#x6709;&#x4E24;&#x79CD;&#x5F62;&#x5F0F;&#xFF1A;</p>
+<pre class="language-"><code>(parameters) -&gt; expression
+</code></pre><p>&#x548C;&#xFF08;&#x4F7F;&#x7528;&#x5927;&#x62EC;&#x53F7;&#xFF09;</p>
+<pre class="language-"><code>(parameters) -&gt; {statements}
+</code></pre><p>&#x4E0B;&#x9762;&#x662F; Lambda &#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x51E0;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<p>     <a href="../images/lambda/demo.png" rel="grouped" title="" target="_self" class="fancybox">
+       <img src="../images/lambda/demo.png" alt="">
+     </a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x4F7F;&#x7528;&#x573A;&#x666F;</th>
+<th style="text-align:left">&#x4F7F;&#x7528;&#x793A;&#x4F8B;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">boolean &#x8868;&#x8FBE;&#x5F0F;</td>
+<td style="text-align:left"><code>(List<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>String</span><span class="token punctuation">&gt;</span></span> list) -&gt; list.isEmpty()</code></td>
+</tr>
+<tr>
+<td style="text-align:left">&#x521B;&#x5EFA;&#x5BF9;&#x8C61;</td>
+<td style="text-align:left"><code>() -&gt; new Apple(10)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Consuming from an object</td>
+<td style="text-align:left"><code>(Apple a) -&gt; { System.out.println(a.getWeight()); }</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Select/extract from an object</td>
+<td style="text-align:left"><code>(String s) -&gt; s.length()</code></td>
+</tr>
+<tr>
+<td style="text-align:left">&#x5408;&#x5E76;&#x4E24;&#x4E2A;&#x503C;</td>
+<td style="text-align:left"><code>(int a, int b) -&gt; a * b</code></td>
+</tr>
+<tr>
+<td style="text-align:left">&#x6BD4;&#x8F83;&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;</td>
+<td style="text-align:left"><code>(Apple a1, Apple a2) -&gt; a1.getWeight().compareTo(a2.getWeight())</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x4F7F;&#x7528;-lambda"><a name="&#x4F7F;&#x7528;-lambda" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;-lambda"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F7F;&#x7528; Lambda</h2>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3; &#xFF08;Functional interface&#xFF09;&#x4E2D;&#x4F7F;&#x7528; Lambda &#x8868;&#x8FBE;&#x5F0F;&#x3002;&#x7B80;&#x5355;&#x6765;&#x8BF4;&#xFF0C;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&#x5C31;&#x662F;&#x53EA;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x7684;&#x63A5;&#x53E3;&#xFF08;&#x63A5;&#x53E3;&#x4E2D;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x989D;&#x5916;&#x7684; default &#x65B9;&#x6CD5;&#xFF09;&#x3002;&#x4F8B;&#x5982; Comparator &#x548C; Runnable &#x90FD;&#x662F;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&#xFF1A;</p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span>  <span class="token keyword">interface</span> <span class="token class-name">Comparator</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> <span class="token function">compare</span><span class="token punctuation">(</span>T o1<span class="token punctuation">,</span> T o2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Runnable</span> <span class="token punctuation">{</span>
+    <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x4E00;&#x822C;&#x5728;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x4E2D;&#x52A0;&#x4E0A; <code>@FunctionalInterface</code> &#x6CE8;&#x89E3;&#x6765;&#x8868;&#x660E;&#x8BE5;&#x63A5;&#x53E3;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&#x3002;&#x4F8B;&#x5982;&#x4E0B;&#x9762;&#x7684;&#x5F62;&#x5F0F;&#xFF1A;</p>
+<pre class="language-"><code class="lang-java"><span class="token annotation punctuation">@FunctionalInterface</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Function</span><span class="token operator">&lt;</span>T<span class="token punctuation">,</span> R<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    R <span class="token function">apply</span><span class="token punctuation">(</span>T t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x5F53;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x901A;&#x8FC7; <code>FunctionalInterface</code> &#x88AB;&#x58F0;&#x660E;&#x4E3A;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&#x65F6;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x5C06;&#x4F1A;&#x68C0;&#x67E5;&#x63A5;&#x53E3;&#x7684;&#x5408;&#x6CD5;&#x6027;&#xFF0C;&#x5982;&#x679C;&#x63A5;&#x53E3;&#x4E0D;&#x5408;&#x6CD5;&#xFF0C;&#x4F1A;&#x62A5;&#x7F16;&#x8BD1;&#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x73B0;&#x5728;&#x8003;&#x8651;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;Lambda &#x8868;&#x8FBE;&#x5F0F;&#x662F;&#x5982;&#x4F55;&#x5339;&#x914D;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&#x7684;&#x5462;&#xFF1F;&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x6709;&#x4E00;&#x4E2A;&#x5982;&#x4E0B;&#x5B9A;&#x4E49;&#x7684;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&#xFF1A;</p>
+<pre class="language-"><code class="lang-java"><span class="token annotation punctuation">@FunctionalInterface</span>
+<span class="token keyword">interface</span> <span class="token class-name">Calculator</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> <span class="token function">cal</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4F7F;&#x7528; lambda &#x8868;&#x8FBE;&#x5F0F;&#x4EE5;&#x53CA;&#x533F;&#x540D;&#x7C7B;&#x6765;&#x521B;&#x5EFA; Calculator &#x5BF9;&#x8C61;&#x7684;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x3002;&#x5728;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#x5BF9;&#x8C61; c &#x548C; c2 &#x7684;&#x5B9E;&#x73B0;&#x662F;&#x7B49;&#x4EF7;&#x7684;&#x3002;</p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">demo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Calculator c <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+
+    Calculator c2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Calculator</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">cal</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x4ECE;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230; <strong>Lambda &#x8868;&#x8FBE;&#x5F0F;</strong> &#x662F;&#x548C;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&#x4E2D;&#x7684; <strong>&#x62BD;&#x8C61;&#x65B9;&#x6CD5;</strong> &#x8FDB;&#x884C;&#x5339;&#x914D;&#x7684;&#xFF0C;&#x5176;&#x4E2D; Lambda &#x8868;&#x8FBE;&#x5F0F;&#x4E2D;&#x53C2;&#x6570;&#x5339;&#x914D; cal &#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#xFF0C;Lambda body &#x7684;&#x5185;&#x5BB9;&#x4F5C;&#x4E3A;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#xFF0C;Lambda body &#x7684;&#x8BA1;&#x7B97;&#x503C;&#x4F5C;&#x4E3A;&#x65B9;&#x6CD5;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x3002;&#x8FD9;&#x4E5F;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x6C42;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x7684;&#x539F;&#x56E0;&#x3002;</p>
+<p>&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&#x4E2D;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x7684;&#x7B7E;&#x540D;&#xFF08;signature&#xFF09;&#x63CF;&#x8FF0;&#x4E86; Lambda &#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x7B7E;&#x540D;&#xFF0C;&#x56E0;&#x4E3A; Lambda &#x8868;&#x8FBE;&#x5F0F;&#x5E76;&#x6CA1;&#x6709;&#x540D;&#x5B57;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x7684;&#x7B7E;&#x540D;&#x53EA;&#x5173;&#x6CE8;&#x4E24;&#x4E2A;&#x65B9;&#x9762;&#xFF1A;<strong>&#x65B9;&#x6CD5;&#x53C2;&#x6570;</strong> &#x548C; <strong>&#x8FD4;&#x56DE;&#x503C;</strong>&#x3002;&#x6211;&#x4EEC;&#x5C06;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x6240;&#x63CF;&#x8FF0;&#x7684; Lambda &#x5F62;&#x5F0F;&#x79F0;&#x4E3A;&#x51FD;&#x6570;&#x63CF;&#x8FF0;&#x7B26;&#xFF08;function descriptor&#xFF09;&#x3002;&#x5728; Calculator &#x7C7B;&#x4E2D;&#xFF0C;cal &#x65B9;&#x6CD5;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;&#x63CF;&#x8FF0;&#x7B26;&#x4E3A; <code>(int, int) -&gt; int</code>&#xFF0C;&#x5373;&#x63A5;&#x53D7;&#x4E24;&#x4E2A; int &#x7C7B;&#x578B;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x8BA1;&#x7B97;&#x503C;&#x4E3A; int &#x7C7B;&#x578B;&#x3002;&#x6240;&#x4EE5;&#x4E0B;&#x9762;&#x7684; Lambda &#x8868;&#x8FBE;&#x5F0F;&#x90FD;&#x662F;&#x5408;&#x6CD5;&#x7684;&#xFF1A;</p>
+<pre class="language-"><code class="lang-java"><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> a
+<span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> a <span class="token operator">+</span> b
+<span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token number">0</span>
+</code></pre>
+
                                 
                                 </section>
                             
@@ -273,7 +406,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Lambda","level":"2.1","depth":1,"previous":{"title":"Java 8","level":"2","depth":0,"ref":"","articles":[{"title":"Lambda","level":"2.1","depth":1,"path":"java8/lambda.md","ref":"java8/lambda.md","articles":[]}]},"dir":"neutral"},"config":{"plugins":["-lunr","-search","-highlight","-livereload","search-plus@^0.0.11","simple-page-toc@0.1.1","github@^2.0.0","edit-link@^2.0.2","prism@^2.1.0","prism-themes@^0.0.2","anchors@^0.7.1","disqus","sitemap-general@^0.1.1","anchor-navigation-ex@0.1.8","favicon@^0.0.2","3-ba@^0.9.0","fancybox","github-buttons@2.1.0","katex"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-base16-ateliersulphurpool.light.css"]},"disqus":{"useIdentifier":false,"shortName":"book-2"},"fancybox":{"helpers":{"buttons":{}}},"github":{"url":"https://github.com/zhangjikai/java-learn"},"simple-page-toc":{"maxDepth":4,"skipFirstH1":true},"donate":{"wechat":"https://zhangjikai.com/resource/weixin.png","alipay":"https://zhangjikai.com/resource/alipay.png","title":"","button":"赏","alipayText":"支付宝打赏","wechatText":"微信打赏"},"sitemap-general":{"prefix":"http://java.zhangjikai.com"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"isRewritePageTitle":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right"},"favicon":{"shortcut":"favicon.ico","bookmark":"favicon.ico"},"prism-themes":{},"github-buttons":{"repo":"zhangjikai/java-learn","types":["star"],"size":"small"},"3-ba":{"configuration":"auto","token":"ff100361cdce95dd4c8fb96b4009f7bc"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/zhangjikai/java-learn/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"search-plus":{}},"theme":"default","author":"zhangjikai","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Java Learn","language":"zh-hans","output.name":"site","links":{"sidebar":{"Home":"http://www.zhangjikai.com"}},"gitbook":"3.2.2","description":"Java 学习笔记"},"file":{"path":"java8/lambda.md","mtime":"2017-12-03T08:35:11.660Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-12-04T01:25:54.005Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Lambda","level":"2.1","depth":1,"previous":{"title":"Java 8","level":"2","depth":0,"ref":"","articles":[{"title":"Lambda","level":"2.1","depth":1,"path":"java8/lambda.md","ref":"java8/lambda.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-highlight","-livereload","search-plus@^0.0.11","simple-page-toc@0.1.1","github@^2.0.0","edit-link@^2.0.2","prism@^2.1.0","prism-themes@^0.0.2","anchors@^0.7.1","disqus","sitemap-general@^0.1.1","anchor-navigation-ex@0.1.8","favicon@^0.0.2","3-ba@^0.9.0","fancybox","github-buttons@2.1.0","katex"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-base16-ateliersulphurpool.light.css"]},"disqus":{"useIdentifier":false,"shortName":"book-2"},"fancybox":{"helpers":{"buttons":{}}},"github":{"url":"https://github.com/zhangjikai/java-learn"},"simple-page-toc":{"maxDepth":4,"skipFirstH1":true},"donate":{"wechat":"https://zhangjikai.com/resource/weixin.png","alipay":"https://zhangjikai.com/resource/alipay.png","title":"","button":"赏","alipayText":"支付宝打赏","wechatText":"微信打赏"},"sitemap-general":{"prefix":"http://java.zhangjikai.com"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"isRewritePageTitle":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right"},"favicon":{"shortcut":"favicon.ico","bookmark":"favicon.ico"},"prism-themes":{},"github-buttons":{"repo":"zhangjikai/java-learn","types":["star"],"size":"small"},"3-ba":{"configuration":"auto","token":"ff100361cdce95dd4c8fb96b4009f7bc"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/zhangjikai/java-learn/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"search-plus":{}},"theme":"default","author":"zhangjikai","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Java Learn","language":"zh-hans","output.name":"site","links":{"sidebar":{"Home":"http://www.zhangjikai.com"}},"gitbook":"3.2.2","description":"Java 学习笔记"},"file":{"path":"java8/lambda.md","mtime":"2017-12-04T14:09:46.867Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-12-04T14:13:02.727Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
