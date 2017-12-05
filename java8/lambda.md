@@ -71,7 +71,7 @@ Lambda 函数的主体可以是表达式（expression）或者语句（statement
 
 
 
-## 使用 Lambda
+## 函数式接口
 我们可以在函数式接口 （Functional interface）中使用 Lambda 表达式。简单来说，函数式接口就是只定义一个抽象方法的接口（接口中可以包含额外的 default 方法）。例如 Comparator 和 Runnable 都是函数式接口：
 ```java
 public  interface Comparator<T> {
@@ -82,7 +82,7 @@ public interface Runnable {
     void run();
 }
 ```
-我们一般在接口定义中加上 `@FunctionalInterface` 注解来表明该接口是一个函数式接口。例如下面的形式：
+我们一般在接口定义中加上 `@FunctionalInterface` 注解来声明该接口是一个函数式接口。例如下面的形式：
 ```java
 @FunctionalInterface
 public interface Function<T, R> {
@@ -113,9 +113,225 @@ public void demo() {
 ```
 从上面的例子中，我们可以看到 **Lambda 表达式** 是和函数式接口中的 **抽象方法** 进行匹配的，其中 Lambda 表达式中参数匹配 cal 方法的参数，Lambda body 的内容作为抽象方法的具体实现，Lambda body 的计算值作为方法的返回值。这也是为什么要求函数式接口只能有一个抽象方法的原因。
 
-函数式接口中抽象方法的签名（signature）描述了 Lambda 表达式的签名，因为 Lambda 表达式并没有名字，所以这里的签名只关注两个方面：**方法参数** 和 **返回值**。我们将抽象方法所描述的 Lambda 形式称为函数描述符（function descriptor）。在 Calculator 类中，cal 方法对应的函数描述符为 `(int, int) -> int`，即接受两个 int 类型作为参数，表达式的计算值为 int 类型。所以下面的 Lambda 表达式都是合法的：
+函数式接口中抽象方法的签名（signature）描述了 Lambda 表达式的签名，因为 Lambda 表达式并没有名字，所以这里的签名只关注三个方面：**方法参数** 、**返回值** 以及 **异常声明**。我们将抽象方法所描述的 Lambda 形式称为函数描述符（function descriptor）。在 Calculator 类中，cal 方法对应的函数描述符为 `(int, int) -> int`，即接受两个 int 类型作为参数，表达式的计算值为 int 类型。所以下面的 Lambda 表达式都是合法的：
 ```java
 (int a, int b) -> a
 (int a, int b) -> a + b
 (int a, int b) -> 0
 ```
+如果 Lambda 表达式抛出一个可检查异常，那么对应的抽象方法所声明的 throws 语句也要与之匹配。看下面的一个例子：
+```java
+@FunctionalInterface
+interface ThrowExceptionInterface {
+    void run(int a, int b);
+}
+
+public class LambdaTest {
+
+    public void throwException() {
+        // 这里编译时会报 Unhandled Exception：java.io.Exception
+        ThrowExceptionInterface t = (int a, int b) -> {
+            throw new IOException();
+        };
+    }
+}
+```
+其实也很好理解，Lambda body 中的内容会作为抽象方法的具体实现，在方法中抛出了异常但是方法声明中却没有相关的异常声明，编译器肯定要报错的。
+
+另外还有一个特殊的 void 兼容规则。如果抽象方法的返回值为 void，即对应的函数描述符为 `(T) -> void`，那么对于 body 为 **语句表达式（statement expression）** 的 Lambda 表达式，只要求参数列表匹配即可。看下面的例子：
+```java
+@FunctionalInterface
+interface VoidInterface {
+    void run(int a);
+}
+
+public class LambdaTest {
+    public static void voidTest() {
+        List<String> list = new ArrayList<>();
+        // 这里 a++ 返回一个 int，但是和 void 兼容
+        VoidInterface v = (int a) -> a++;
+        // 下面的代码会报错，因为 a-1 不是一个语句表达式
+        v = (int a) -> a-1;
+    }
+}
+```
+这里说一下语句表达式:
+> The term “statement expression” or “expression statement” refers to expressions that are also allowed to be used as a statement.
+
+语法表达式有下面四类：
+* Assignment expressions
+* Any use of ++ or --
+* Method invocations
+* Object creation expressions
+
+### 类型检查
+Lambda 表达式本身并不包含它是实现哪个函数式接口的信息，编译器会根据 Lambda 表达式所处的上下文（context）环境来推断 Lambda 表达式的目标类型（target type），例如对于下面的代码：
+```java
+Calculator c = (int a, int b) -> a + b;
+```
+Lambda 表达式会赋值给 Calculator 对象，那么该 Lambda 表达式对应的目标类型就是 Calculator 接口，该接口中的 cal 方法对应的函数描述符为 `(int, int) -> int`，这个和 `(int a, int b) -> a + b` 可以匹配，这样就完成了类型检查。下图是一个完整的例子：
+
+![](/images/lambda/类型检查.png)
+
+### 类型推断
+在上面我们提到编译器会根据上下文环境推断出与 Lambda 表达式对应的函数式接口，这意味着编译器同样可以根据接口中抽象方法的函数函数描述符推断出 Lambda 表达式的签名，这样编译器就可以知道 Lambda 表达式的参数类型，这样就可以省略 Lambda 表达式中的参数类型，
+```java
+Calculator c = (a, b) -> a + b;
+// 当只有一个参数时，可以省略掉 ()
+VoidInterface v = a -> a++;
+```
+
+## Java 8 中的函数式接口
+在 Java 8 中定义了一些函数式接口，位于 `java.util.function` 包下，下面是这些接口的总览：
+```
++--- BiConsumer.java
++--- BiFunction.java
++--- BinaryOperator.java
++--- BiPredicate.java
++--- BooleanSupplier.java
++--- Consumer.java
++--- DoubleBinaryOperator.java
++--- DoubleConsumer.java
++--- DoubleFunction.java
++--- DoublePredicate.java
++--- DoubleSupplier.java
++--- DoubleToIntFunction.java
++--- DoubleToLongFunction.java
++--- DoubleUnaryOperator.java
++--- Function.java
++--- IntBinaryOperator.java
++--- IntConsumer.java
++--- IntFunction.java
++--- IntPredicate.java
++--- IntSupplier.java
++--- IntToDoubleFunction.java
++--- IntToLongFunction.java
++--- IntUnaryOperator.java
++--- LongBinaryOperator.java
++--- LongConsumer.java
++--- LongFunction.java
++--- LongPredicate.java
++--- LongSupplier.java
++--- LongToDoubleFunction.java
++--- LongToIntFunction.java
++--- LongUnaryOperator.java
++--- ObjDoubleConsumer.java
++--- ObjIntConsumer.java
++--- ObjLongConsumer.java
++--- Predicate.java
++--- Supplier.java
++--- ToDoubleBiFunction.java
++--- ToDoubleFunction.java
++--- ToIntBiFunction.java
++--- ToIntFunction.java
++--- ToLongBiFunction.java
++--- ToLongFunction.java
++--- UnaryOperator.java
+```
+### Predicate
+用来测试对象是否满足某种条件。该接口定义了一个 test 方法，接受一个泛型对象，并返回测试结果。下面是一个使用示例：
+```java
+public <T> boolean judge(T t, Predicate<T> p) {
+    return p.test(t);
+}
+
+public void testPredicate() {
+    String text = "111";
+    System.out.println(judge(text, s -> s != null));
+}
+```
+下面是 Predicate 接口的实现：
+```java
+/**
+ * Represents a predicate (boolean-valued function) of one argument.
+ */
+@FunctionalInterface
+public interface Predicate<T> {
+
+    /**
+     * Evaluates this predicate on the given argument.
+     *
+     * @param t the input argument
+     * @return {@code true} if the input argument matches the predicate,
+     * otherwise {@code false}
+     */
+    boolean test(T t);
+
+    default Predicate<T> and(Predicate<? super T> other) {
+        Objects.requireNonNull(other);
+        return (t) -> test(t) && other.test(t);
+    }
+
+    default Predicate<T> negate() {
+        return (t) -> !test(t);
+    }
+
+    default Predicate<T> or(Predicate<? super T> other) {
+        Objects.requireNonNull(other);
+        return (t) -> test(t) || other.test(t);
+    }
+
+    static <T> Predicate<T> isEqual(Object targetRef) {
+        return (null == targetRef)
+                ? Objects::isNull
+                : object -> targetRef.equals(object);
+    }
+}
+```
+
+我们看到在 Predicate 类中，除了 test 方法，还定义了三个 default 方法，`and`, `or` 和 `negate`，它们分别对应逻辑运算中的与（&&）、或（||）、非（!）操作。通过这三个方法，我们可以构造更复杂的 predicate 表达式：
+```java
+public void testPredicate() {
+    String text = "111";
+    Predicate<String> a = s - > s != null;
+    Predicate<String> b = s - > s.length() > 3;
+    System.out.println(judge(text, a.and(b)));
+    System.out.println(judge(text, a.negate()));
+    System.out.println(judge(text, a.or(b)));
+}
+```
+对应的输出结果为：
+```
+false
+false
+true
+```
+另外 and 和 or 方法是按照在表达式链中的位置，从左向右确定优先级的。因此 `a.or(b).and(c)` 可以看作 `(a || b) && c`。
+
+### Consumer
+针对对象进行某种操作（消费对象）。该接口定义了一个 accept 方法，会将该方法作用于目标对象。下面是要给示例：
+```java
+public <T> void consume(T t, Consumer<T> c) {
+    c.accept(t);
+}
+
+@Test
+public void testConsume() {
+    String text = "1234";
+    consume(text, s - > System.out.println(s.substring(2)));
+}
+```
+下面是 Consumer 类的代码
+```java
+/**
+ * Represents an operation that accepts a single input argument and returns no
+ * result. Unlike most other functional interfaces, {@code Consumer} is expected
+ * to operate via side-effects.
+ */
+@FunctionalInterface
+public interface Consumer<T> {
+
+    /**
+     * Performs this operation on the given argument.
+     *
+     * @param t the input argument
+     */
+    void accept(T t);
+
+    default Consumer<T> andThen(Consumer<? super T> after) {
+        Objects.requireNonNull(after);
+        return (T t) -> { accept(t); after.accept(t); };
+    }
+}
+```
+Consumer 中定义了一个 addThen 的 default 方法，通过该方法我们可以对目标对象进行链式（chain）处理，下面是一个示例：
