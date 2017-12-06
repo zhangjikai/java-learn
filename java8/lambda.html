@@ -124,6 +124,15 @@
 
 
 <ul class="summary">
+
+    <!-- <div class="author">
+        <div class="avatar">
+            <img src="http://www.zhangjikai.com/home/images/avatar.jpg">
+        </div>
+        <p class="author-name">Author Name</p>
+        <li class="divider"></li>
+    </div> -->
+
     
     
     
@@ -238,7 +247,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><a href="#lambda-&#x8868;&#x8FBE;&#x5F0F;">Lambda &#x8868;&#x8FBE;&#x5F0F;</a></li><ul><li><a href="#&#x5B9A;&#x4E49;">&#x5B9A;&#x4E49;</a></li><li><a href="#lambda-&#x5F62;&#x5F0F;">Lambda &#x5F62;&#x5F0F;</a></li><li><a href="#&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;">&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;</a></li><ul><li><a href="#&#x7C7B;&#x578B;&#x68C0;&#x67E5;">&#x7C7B;&#x578B;&#x68C0;&#x67E5;</a></li><li><a href="#&#x7C7B;&#x578B;&#x63A8;&#x65AD;">&#x7C7B;&#x578B;&#x63A8;&#x65AD;</a></li></ul><li><a href="#java-8-&#x4E2D;&#x7684;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;">Java 8 &#x4E2D;&#x7684;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;</a></li><ul><li><a href="#predicate">Predicate</a></li><li><a href="#consumer">Consumer</a></li></ul></ul></ul></div><a href="#lambda-&#x8868;&#x8FBE;&#x5F0F;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="lambda-&#x8868;&#x8FBE;&#x5F0F;"><a name="lambda-&#x8868;&#x8FBE;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#lambda-&#x8868;&#x8FBE;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>Lambda &#x8868;&#x8FBE;&#x5F0F;</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><a href="#lambda-&#x8868;&#x8FBE;&#x5F0F;">Lambda &#x8868;&#x8FBE;&#x5F0F;</a></li><ul><li><a href="#&#x5B9A;&#x4E49;">&#x5B9A;&#x4E49;</a></li><li><a href="#lambda-&#x5F62;&#x5F0F;">Lambda &#x5F62;&#x5F0F;</a></li><li><a href="#&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;">&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;</a></li><ul><li><a href="#&#x7C7B;&#x578B;&#x68C0;&#x67E5;">&#x7C7B;&#x578B;&#x68C0;&#x67E5;</a></li><li><a href="#&#x7C7B;&#x578B;&#x63A8;&#x65AD;">&#x7C7B;&#x578B;&#x63A8;&#x65AD;</a></li></ul><li><a href="#java-8-&#x4E2D;&#x7684;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;">Java 8 &#x4E2D;&#x7684;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;</a></li><ul><li><a href="#predicate">Predicate</a></li><li><a href="#consumer">Consumer</a></li><li><a href="#supplier">Supplier</a></li><li><a href="#function">Function</a></li></ul></ul></ul></div><a href="#lambda-&#x8868;&#x8FBE;&#x5F0F;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="lambda-&#x8868;&#x8FBE;&#x5F0F;"><a name="lambda-&#x8868;&#x8FBE;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#lambda-&#x8868;&#x8FBE;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>Lambda &#x8868;&#x8FBE;&#x5F0F;</h1>
 <!-- toc -->
 <ul>
 <li><a href="#&#x5B9A;&#x4E49;">&#x5B9A;&#x4E49;</a></li>
@@ -251,6 +260,11 @@
 <li><a href="#java-8-&#x4E2D;&#x7684;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;">Java 8 &#x4E2D;&#x7684;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;</a><ul>
 <li><a href="#predicate">Predicate</a></li>
 <li><a href="#consumer">Consumer</a></li>
+<li><a href="#supplier">Supplier</a></li>
+<li><a href="#function">Function</a><ul>
+<li><a href="#unaryoperator">UnaryOperator</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -547,7 +561,7 @@ false
 true
 </code></pre><p>&#x53E6;&#x5916; and &#x548C; or &#x65B9;&#x6CD5;&#x662F;&#x6309;&#x7167;&#x5728;&#x8868;&#x8FBE;&#x5F0F;&#x94FE;&#x4E2D;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x4ECE;&#x5DE6;&#x5411;&#x53F3;&#x786E;&#x5B9A;&#x4F18;&#x5148;&#x7EA7;&#x7684;&#x3002;&#x56E0;&#x6B64; <code>a.or(b).and(c)</code> &#x53EF;&#x4EE5;&#x770B;&#x4F5C; <code>(a || b) &amp;&amp; c</code>&#x3002;</p>
 <h3 id="consumer"><a name="consumer" class="anchor-navigation-ex-anchor" href="#consumer"><i class="fa fa-link" aria-hidden="true"></i></a>Consumer</h3>
-<p>&#x9488;&#x5BF9;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x67D0;&#x79CD;&#x64CD;&#x4F5C;&#xFF08;&#x6D88;&#x8D39;&#x5BF9;&#x8C61;&#xFF09;&#x3002;&#x8BE5;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A; accept &#x65B9;&#x6CD5;&#xFF0C;&#x4F1A;&#x5C06;&#x8BE5;&#x65B9;&#x6CD5;&#x4F5C;&#x7528;&#x4E8E;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x8981;&#x7ED9;&#x793A;&#x4F8B;&#xFF1A;</p>
+<p>Consumer&#xFF08;&#x6D88;&#x8D39;&#x8005;&#xFF09;&#xFF0C;&#x9488;&#x5BF9;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x67D0;&#x79CD;&#x64CD;&#x4F5C;&#xFF08;&#x6D88;&#x8D39;&#x5BF9;&#x8C61;&#xFF09;&#x3002;&#x8BE5;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A; accept &#x65B9;&#x6CD5;&#xFF0C;&#x4F1A;&#x5C06;&#x8BE5;&#x65B9;&#x6CD5;&#x4F5C;&#x7528;&#x4E8E;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x8981;&#x7ED9;&#x793A;&#x4F8B;&#xFF1A;</p>
 <pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token keyword">void</span> <span class="token function">consume</span><span class="token punctuation">(</span>T t<span class="token punctuation">,</span> Consumer<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> c<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     c<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -555,7 +569,7 @@ true
 <span class="token annotation punctuation">@Test</span>
 <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testConsume</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     String text <span class="token operator">=</span> <span class="token string">&quot;1234&quot;</span><span class="token punctuation">;</span>
-    <span class="token function">consume</span><span class="token punctuation">(</span>text<span class="token punctuation">,</span> s <span class="token operator">-</span> <span class="token operator">&gt;</span> System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">consume</span><span class="token punctuation">(</span>text<span class="token punctuation">,</span> s <span class="token operator">-</span><span class="token operator">&gt;</span> System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <p>&#x4E0B;&#x9762;&#x662F; Consumer &#x7C7B;&#x7684;&#x4EE3;&#x7801;</p>
@@ -580,7 +594,123 @@ true
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>Consumer &#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A; addThen &#x7684; default &#x65B9;&#x6CD5;&#xFF0C;&#x901A;&#x8FC7;&#x8BE5;&#x65B9;&#x6CD5;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5BF9;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x94FE;&#x5F0F;&#xFF08;chain&#xFF09;&#x5904;&#x7406;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x793A;&#x4F8B;&#xFF1A;</p>
+<p>Consumer &#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A; andThen &#x7684; default &#x65B9;&#x6CD5;&#xFF0C;&#x901A;&#x8FC7;&#x8BE5;&#x65B9;&#x6CD5;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5BF9;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x94FE;&#x5F0F;&#xFF08;chain&#xFF09;&#x5904;&#x7406;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testConsume</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    StringBuilder builder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Consumer <span class="token operator">&lt;</span>StringBuilder<span class="token operator">&gt;</span> a <span class="token operator">=</span> s <span class="token operator">-</span><span class="token operator">&gt;</span> s<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">&quot;abcd&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Consumer <span class="token operator">&lt;</span>StringBuilder<span class="token operator">&gt;</span> b <span class="token operator">=</span> s <span class="token operator">-</span><span class="token operator">&gt;</span> s<span class="token punctuation">.</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Consumer <span class="token operator">&lt;</span>StringBuilder<span class="token operator">&gt;</span> c <span class="token operator">=</span> s <span class="token operator">-</span><span class="token operator">&gt;</span> s<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">&quot;1234&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">consume</span><span class="token punctuation">(</span>builder<span class="token punctuation">,</span> a<span class="token punctuation">.</span><span class="token function">andThen</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">andThen</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4E3A;&#xFF1A;</p>
+<pre class="language-"><code>dcba1234
+</code></pre><h3 id="supplier"><a name="supplier" class="anchor-navigation-ex-anchor" href="#supplier"><i class="fa fa-link" aria-hidden="true"></i></a>Supplier</h3>
+<p>Supplier&#xFF08;&#x4F9B;&#x5E94;&#x5546;&#xFF09;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6CDB;&#x578B;&#x5BF9;&#x8C61;&#xFF08;&#x751F;&#x4EA7;&#x5BF9;&#x8C61;&#xFF09;&#x3002;&#x8BE5;&#x63A5;&#x53E3;&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A; get &#x65B9;&#x6CD5;&#xFF0C;&#x6CA1;&#x6709;&#x65B9;&#x6CD5;&#x53C2;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x6CDB;&#x578B;&#x5BF9;&#x8C61;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x793A;&#x4F8B;</p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> T <span class="token function">supplier</span><span class="token punctuation">(</span>Supplier<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> s<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testSupplier</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    String text <span class="token operator">=</span> <span class="token function">supplier</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token string">&quot;1111&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x662F; Supplier &#x63A5;&#x53E3;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<pre class="language-"><code class="lang-java"><span class="token comment" spellcheck="true">/**
+ * Represents a supplier of results.
+ */</span>
+<span class="token annotation punctuation">@FunctionalInterface</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Supplier</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * Gets a result.
+     */</span>
+    T <span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="function"><a name="function" class="anchor-navigation-ex-anchor" href="#function"><i class="fa fa-link" aria-hidden="true"></i></a>Function</h3>
+<p>Function &#x63A5;&#x53E3;&#x5C31;&#x76F8;&#x5F53;&#x4E8E; <code>y=f(x)</code> &#x4E2D;&#x7684;&#x51FD;&#x6570; f&#xFF0C;&#x63A5;&#x6536;&#x4E00;&#x4E2A; x&#xFF08;argument&#xFF09;&#x8FD4;&#x56DE;&#x8BA1;&#x7B97;&#x503C; y&#xFF08;result&#xFF09;&#x3002;&#x8BE5;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A; apply &#x65B9;&#x6CD5;&#xFF0C;&#x63A5;&#x6536;&#x4E00;&#x4E2A; T &#x7C7B;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; R &#x7C7B;&#x578B;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token operator">&lt;</span>T<span class="token punctuation">,</span> R<span class="token operator">&gt;</span> R <span class="token function">func</span><span class="token punctuation">(</span>T t<span class="token punctuation">,</span> Function<span class="token operator">&lt;</span>T<span class="token punctuation">,</span> R<span class="token operator">&gt;</span> f<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> f<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    String text <span class="token operator">=</span> <span class="token string">&quot;1234&quot;</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token function">func</span><span class="token punctuation">(</span>text<span class="token punctuation">,</span> t <span class="token operator">-</span><span class="token operator">&gt;</span> Integer<span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// &#x8F93;&#x51FA; 1235</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x662F; Function &#x63A5;&#x53E3;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<pre class="language-"><code class="lang-java"><span class="token comment" spellcheck="true">/**
+ * Represents a function that accepts one argument and produces a result.
+ */</span>
+<span class="token annotation punctuation">@FunctionalInterface</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Function</span><span class="token operator">&lt;</span>T<span class="token punctuation">,</span> R<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * Applies this function to the given argument.
+     */</span>
+    R <span class="token function">apply</span><span class="token punctuation">(</span>T t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">default</span> <span class="token operator">&lt;</span>V<span class="token operator">&gt;</span> Function<span class="token operator">&lt;</span>V<span class="token punctuation">,</span> R<span class="token operator">&gt;</span> <span class="token function">compose</span><span class="token punctuation">(</span>Function<span class="token operator">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> V<span class="token punctuation">,</span> <span class="token operator">?</span> <span class="token keyword">extends</span> <span class="token class-name">T</span><span class="token operator">&gt;</span> before<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Objects<span class="token punctuation">.</span><span class="token function">requireNonNull</span><span class="token punctuation">(</span>before<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>V v<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token function">apply</span><span class="token punctuation">(</span>before<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">default</span> <span class="token operator">&lt;</span>V<span class="token operator">&gt;</span> Function<span class="token operator">&lt;</span>T<span class="token punctuation">,</span> V<span class="token operator">&gt;</span> <span class="token function">andThen</span><span class="token punctuation">(</span>Function<span class="token operator">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> R<span class="token punctuation">,</span> <span class="token operator">?</span> <span class="token keyword">extends</span> <span class="token class-name">V</span><span class="token operator">&gt;</span> after<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Objects<span class="token punctuation">.</span><span class="token function">requireNonNull</span><span class="token punctuation">(</span>after<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>T t<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> after<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token function">apply</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">static</span> <span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> Function<span class="token operator">&lt;</span>T<span class="token punctuation">,</span> T<span class="token operator">&gt;</span> <span class="token function">identity</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> t <span class="token operator">-</span><span class="token operator">&gt;</span> t<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x5728; Function &#x63A5;&#x53E3;&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x4E24;&#x4E2A; default &#x65B9;&#x6CD5;&#xFF1A;<code>compose</code> &#x548C; <code>andThen</code> &#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x94FE;&#x5F0F;&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x5047;&#x8BBE;&#x6709;&#x4E24;&#x4E2A;&#x51FD;&#x6570; f(x) &#x548C; g(x):</p>
+<pre class="language-"><code>f.compose(g) =&gt; f(g(x))
+f.andThen(g) =&gt; g(f(x))
+</code></pre><p>&#x4E0B;&#x56FE;&#x662F;&#x4E00;&#x4E2A;&#x8BE6;&#x7EC6;&#x7684;&#x89E3;&#x91CA;</p>
+<p>     <a href="../images/lambda/function.png" rel="grouped" title="" target="_self" class="fancybox">
+       <img src="../images/lambda/function.png" alt="">
+     </a></p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Function<span class="token operator">&lt;</span>Integer<span class="token punctuation">,</span> Integer<span class="token operator">&gt;</span> f <span class="token operator">=</span> x <span class="token operator">-</span><span class="token operator">&gt;</span> x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    Function<span class="token operator">&lt;</span>Integer<span class="token punctuation">,</span> Integer<span class="token operator">&gt;</span> g <span class="token operator">=</span> x <span class="token operator">-</span><span class="token operator">&gt;</span> x <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> f<span class="token punctuation">.</span><span class="token function">andThen</span><span class="token punctuation">(</span>g<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// &#x8F93;&#x51FA; 4</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    i <span class="token operator">=</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> f<span class="token punctuation">.</span><span class="token function">compose</span><span class="token punctuation">(</span>g<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// &#x8F93;&#x51FA; 3</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="unaryoperator"><a name="unaryoperator" class="anchor-navigation-ex-anchor" href="#unaryoperator"><i class="fa fa-link" aria-hidden="true"></i></a>UnaryOperator</h4>
+<p>UnaryOperator &#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684; Function&#xFF0C;&#x8868;&#x793A;&#x64CD;&#x4F5C;&#x6570;&#x548C;&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x540C;&#x4E00;&#x79CD;&#x7C7B;&#x578B;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x8BE5;&#x63A5;&#x53E3;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<pre class="language-"><code class="lang-java"><span class="token comment" spellcheck="true">/**
+ * Represents an operation on a single operand that produces a result of the
+ * same type as its operand.  This is a specialization of {@code Function} for
+ * the case where the operand and result are of the same type.
+ */</span>
+<span class="token annotation punctuation">@FunctionalInterface</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">UnaryOperator</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token keyword">extends</span> <span class="token class-name">Function</span><span class="token operator">&lt;</span>T<span class="token punctuation">,</span> T<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">static</span> <span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> UnaryOperator<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token function">identity</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> t <span class="token operator">-</span><span class="token operator">&gt;</span> t<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testUnaryOperator</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    UnaryOperator<span class="token operator">&lt;</span>Integer<span class="token operator">&gt;</span> u <span class="token operator">=</span> x <span class="token operator">-</span><span class="token operator">&gt;</span> x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>u<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
 
                                 
                                 </section>
@@ -616,7 +746,7 @@ true
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Lambda","level":"2.1","depth":1,"previous":{"title":"Java 8","level":"2","depth":0,"ref":"","articles":[{"title":"Lambda","level":"2.1","depth":1,"path":"java8/lambda.md","ref":"java8/lambda.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-highlight","-livereload","search-plus@^0.0.11","simple-page-toc@0.1.1","github@^2.0.0","edit-link@^2.0.2","prism@^2.1.0","prism-themes@^0.0.2","anchors@^0.7.1","disqus","sitemap-general@^0.1.1","anchor-navigation-ex@0.1.8","favicon@^0.0.2","3-ba@^0.9.0","fancybox","github-buttons@2.1.0","katex"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-base16-ateliersulphurpool.light.css"]},"disqus":{"useIdentifier":false,"shortName":"book-2"},"fancybox":{"helpers":{"buttons":{}}},"github":{"url":"https://github.com/zhangjikai/java-learn"},"simple-page-toc":{"maxDepth":4,"skipFirstH1":true},"donate":{"wechat":"https://zhangjikai.com/resource/weixin.png","alipay":"https://zhangjikai.com/resource/alipay.png","title":"","button":"赏","alipayText":"支付宝打赏","wechatText":"微信打赏"},"sitemap-general":{"prefix":"http://java.zhangjikai.com"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"isRewritePageTitle":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right"},"favicon":{"shortcut":"favicon.ico","bookmark":"favicon.ico"},"prism-themes":{},"github-buttons":{"repo":"zhangjikai/java-learn","types":["star"],"size":"small"},"3-ba":{"configuration":"auto","token":"ff100361cdce95dd4c8fb96b4009f7bc"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/zhangjikai/java-learn/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"search-plus":{}},"theme":"default","author":"zhangjikai","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Java Learn","language":"zh-hans","output.name":"site","links":{"sidebar":{"Home":"http://www.zhangjikai.com"}},"gitbook":"3.2.2","description":"Java 学习笔记"},"file":{"path":"java8/lambda.md","mtime":"2017-12-05T12:07:37.397Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-12-05T14:06:18.695Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Lambda","level":"2.1","depth":1,"previous":{"title":"Java 8","level":"2","depth":0,"ref":"","articles":[{"title":"Lambda","level":"2.1","depth":1,"path":"java8/lambda.md","ref":"java8/lambda.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-highlight","-livereload","search-plus@^0.0.11","simple-page-toc@0.1.1","github@^2.0.0","edit-link@^2.0.2","prism@^2.1.0","prism-themes@^0.0.2","anchors@^0.7.1","disqus","sitemap-general@^0.1.1","anchor-navigation-ex@0.1.8","favicon@^0.0.2","3-ba@^0.9.0","fancybox","github-buttons@2.1.0","katex"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-base16-ateliersulphurpool.light.css"]},"disqus":{"useIdentifier":false,"shortName":"book-2"},"fancybox":{"helpers":{"buttons":{}}},"github":{"url":"https://github.com/zhangjikai/java-learn"},"simple-page-toc":{"maxDepth":4,"skipFirstH1":true},"donate":{"wechat":"https://zhangjikai.com/resource/weixin.png","alipay":"https://zhangjikai.com/resource/alipay.png","title":"","button":"赏","alipayText":"支付宝打赏","wechatText":"微信打赏"},"sitemap-general":{"prefix":"http://java.zhangjikai.com"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"isRewritePageTitle":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right"},"favicon":{"shortcut":"favicon.ico","bookmark":"favicon.ico"},"prism-themes":{},"github-buttons":{"repo":"zhangjikai/java-learn","types":["star"],"size":"small"},"3-ba":{"configuration":"auto","token":"ff100361cdce95dd4c8fb96b4009f7bc"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/zhangjikai/java-learn/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"search-plus":{}},"theme":"default","author":"zhangjikai","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Java Learn","language":"zh-hans","output.name":"site","links":{"sidebar":{"Home":"http://www.zhangjikai.com"}},"gitbook":"3.2.2","description":"Java 学习笔记"},"file":{"path":"java8/lambda.md","mtime":"2017-12-06T09:10:50.424Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-12-06T10:30:40.060Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -299,7 +299,7 @@ true
 另外 and 和 or 方法是按照在表达式链中的位置，从左向右确定优先级的。因此 `a.or(b).and(c)` 可以看作 `(a || b) && c`。
 
 ### Consumer
-针对对象进行某种操作（消费对象）。该接口定义了一个 accept 方法，会将该方法作用于目标对象。下面是要给示例：
+Consumer（消费者），针对对象进行某种操作（消费对象）。该接口定义了一个 accept 方法，会将该方法作用于目标对象。下面是要给示例：
 ```java
 public <T> void consume(T t, Consumer<T> c) {
     c.accept(t);
@@ -308,7 +308,7 @@ public <T> void consume(T t, Consumer<T> c) {
 @Test
 public void testConsume() {
     String text = "1234";
-    consume(text, s - > System.out.println(s.substring(2)));
+    consume(text, s -> System.out.println(s.substring(2)));
 }
 ```
 下面是 Consumer 类的代码
@@ -334,4 +334,137 @@ public interface Consumer<T> {
     }
 }
 ```
-Consumer 中定义了一个 addThen 的 default 方法，通过该方法我们可以对目标对象进行链式（chain）处理，下面是一个示例：
+Consumer 中定义了一个 andThen 的 default 方法，通过该方法我们可以对目标对象进行链式（chain）处理，下面是一个示例：
+```java
+public void testConsume() {
+    StringBuilder builder = new StringBuilder();
+    Consumer <StringBuilder> a = s -> s.append("abcd");
+    Consumer <StringBuilder> b = s -> s.reverse();
+    Consumer <StringBuilder> c = s -> s.append("1234");
+    consume(builder, a.andThen(b).andThen(c));
+    System.out.println(builder.toString());
+}
+```
+输出结果为：
+```
+dcba1234
+```
+
+### Supplier
+Supplier（供应商），返回一个泛型对象（生产对象）。该接口中定义了一个 get 方法，没有方法参数，返回值是一个泛型对象。下面是一个使用示例
+```java
+public <T> T supplier(Supplier<T> s) {
+    return s.get();
+}
+
+public void testSupplier() {
+    String text = supplier(() -> "1111");
+    System.out.println(text);
+}
+```
+下面是 Supplier 接口的定义：
+```java
+/**
+ * Represents a supplier of results.
+ */
+@FunctionalInterface
+public interface Supplier<T> {
+
+    /**
+     * Gets a result.
+     */
+    T get();
+}
+```
+
+### Function
+Function 接口就相当于 `y=f(x)` 中的函数 f，接收一个 x（argument）返回计算值 y（result）。该接口定义了一个 apply 方法，接收一个 T 类型的对象，返回一个 R 类型的结果，下面是一个使用示例：
+```java
+public <T, R> R func(T t, Function<T, R> f) {
+    return f.apply(t);
+}
+
+public void testFunction() {
+    String text = "1234";
+    int i = func(text, t -> Integer.parseInt(t));
+    // 输出 1235
+    System.out.println(i + 1);
+}
+```
+下面是 Function 接口的定义：
+```java
+/**
+ * Represents a function that accepts one argument and produces a result.
+ */
+@FunctionalInterface
+public interface Function<T, R> {
+
+    /**
+     * Applies this function to the given argument.
+     */
+    R apply(T t);
+
+    default <V> Function<V, R> compose(Function<? super V, ? extends T> before) {
+        Objects.requireNonNull(before);
+        return (V v) -> apply(before.apply(v));
+    }
+
+    default <V> Function<T, V> andThen(Function<? super R, ? extends V> after) {
+        Objects.requireNonNull(after);
+        return (T t) -> after.apply(apply(t));
+    }
+
+    static <T> Function<T, T> identity() {
+        return t -> t;
+    }
+}
+```
+在 Function 接口中定义了两个 default 方法：`compose` 和 `andThen` 可以进行链式的调用，假设有两个函数 f(x) 和 g(x):
+```
+f.compose(g) => f(g(x))
+f.andThen(g) => g(f(x))
+```
+
+下图是一个详细的解释
+
+![](/images/lambda/function.png)
+
+
+下面是一个使用示例：
+```java
+public void testFunction() {
+    Function<Integer, Integer> f = x -> x + 1;
+    Function<Integer, Integer> g = x -> x * 2;
+    int i = func(1, f.andThen(g));
+    // 输出 4
+    System.out.println(i);
+
+    i = func(1, f.compose(g));
+    // 输出 3
+    System.out.println(i);
+}
+```
+#### UnaryOperator
+UnaryOperator 是一种特殊的 Function，表示操作数和返回值是同一种类型，下面是该接口的定义：
+```java
+/**
+ * Represents an operation on a single operand that produces a result of the
+ * same type as its operand.  This is a specialization of {@code Function} for
+ * the case where the operand and result are of the same type.
+ */
+@FunctionalInterface
+public interface UnaryOperator<T> extends Function<T, T> {
+
+    static <T> UnaryOperator<T> identity() {
+        return t -> t;
+    }
+}
+```
+
+下面是一个使用示例：
+```java
+public void testUnaryOperator() {
+    UnaryOperator<Integer> u = x -> x + 1;
+    System.out.println(u.apply(1));
+}
+```
