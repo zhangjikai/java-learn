@@ -107,3 +107,11 @@ td:last-child {
   width:100%;
   white-space:normal;
 }
+
+#anchorNavigationExGoTop {
+    line-height: 1.5em;
+    padding: 6px 10px;
+}
+#anchor-navigation-ex-navbar {
+    padding: 6px 10px;
+}
