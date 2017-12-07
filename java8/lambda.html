@@ -247,7 +247,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><a href="#lambda-&#x8868;&#x8FBE;&#x5F0F;">Lambda &#x8868;&#x8FBE;&#x5F0F;</a></li><ul><li><a href="#&#x5B9A;&#x4E49;">&#x5B9A;&#x4E49;</a></li><li><a href="#lambda-&#x5F62;&#x5F0F;">Lambda &#x5F62;&#x5F0F;</a></li><li><a href="#&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;">&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;</a></li><ul><li><a href="#&#x7C7B;&#x578B;&#x68C0;&#x67E5;">&#x7C7B;&#x578B;&#x68C0;&#x67E5;</a></li><li><a href="#&#x7C7B;&#x578B;&#x63A8;&#x65AD;">&#x7C7B;&#x578B;&#x63A8;&#x65AD;</a></li></ul><li><a href="#java-8-&#x4E2D;&#x7684;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;">Java 8 &#x4E2D;&#x7684;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;</a></li><ul><li><a href="#predicate">Predicate</a></li><li><a href="#consumer">Consumer</a></li><li><a href="#supplier">Supplier</a></li><li><a href="#function">Function</a></li></ul></ul></ul></div><a href="#lambda-&#x8868;&#x8FBE;&#x5F0F;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="lambda-&#x8868;&#x8FBE;&#x5F0F;"><a name="lambda-&#x8868;&#x8FBE;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#lambda-&#x8868;&#x8FBE;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>Lambda &#x8868;&#x8FBE;&#x5F0F;</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><a href="#lambda-&#x8868;&#x8FBE;&#x5F0F;">Lambda &#x8868;&#x8FBE;&#x5F0F;</a></li><ul><li><a href="#&#x5B9A;&#x4E49;">&#x5B9A;&#x4E49;</a></li><li><a href="#lambda-&#x5F62;&#x5F0F;">Lambda &#x5F62;&#x5F0F;</a></li><li><a href="#&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;">&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;</a></li><ul><li><a href="#&#x7C7B;&#x578B;&#x68C0;&#x67E5;">&#x7C7B;&#x578B;&#x68C0;&#x67E5;</a></li><li><a href="#&#x7C7B;&#x578B;&#x63A8;&#x65AD;">&#x7C7B;&#x578B;&#x63A8;&#x65AD;</a></li></ul><li><a href="#java-8-&#x4E2D;&#x7684;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;">Java 8 &#x4E2D;&#x7684;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;</a></li><ul><li><a href="#predicate">Predicate</a></li><li><a href="#bipredicate">BiPredicate</a></li><li><a href="#consumer">Consumer</a></li><li><a href="#biconsumer">BiConsumer</a></li><li><a href="#supplier">Supplier</a></li><li><a href="#function">Function</a></li><li><a href="#bifunction">BiFunction</a></li><li><a href="#primitive-specializations">Primitive specializations</a></li></ul></ul></ul></div><a href="#lambda-&#x8868;&#x8FBE;&#x5F0F;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="lambda-&#x8868;&#x8FBE;&#x5F0F;"><a name="lambda-&#x8868;&#x8FBE;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#lambda-&#x8868;&#x8FBE;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>Lambda &#x8868;&#x8FBE;&#x5F0F;</h1>
 <!-- toc -->
 <ul>
 <li><a href="#&#x5B9A;&#x4E49;">&#x5B9A;&#x4E49;</a></li>
@@ -259,12 +259,19 @@
 </li>
 <li><a href="#java-8-&#x4E2D;&#x7684;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;">Java 8 &#x4E2D;&#x7684;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;</a><ul>
 <li><a href="#predicate">Predicate</a></li>
+<li><a href="#bipredicate">BiPredicate</a></li>
 <li><a href="#consumer">Consumer</a></li>
+<li><a href="#biconsumer">BiConsumer</a></li>
 <li><a href="#supplier">Supplier</a></li>
 <li><a href="#function">Function</a><ul>
 <li><a href="#unaryoperator">UnaryOperator</a></li>
 </ul>
 </li>
+<li><a href="#bifunction">BiFunction</a><ul>
+<li><a href="#binaryoperator">BinaryOperator</a></li>
+</ul>
+</li>
+<li><a href="#primitive-specializations">Primitive specializations</a></li>
 </ul>
 </li>
 </ul>
@@ -498,7 +505,7 @@ VoidInterface v <span class="token operator">=</span> a <span class="token opera
 +--- ToLongFunction.java
 +--- UnaryOperator.java
 </code></pre><h3 id="predicate"><a name="predicate" class="anchor-navigation-ex-anchor" href="#predicate"><i class="fa fa-link" aria-hidden="true"></i></a>Predicate</h3>
-<p>&#x7528;&#x6765;&#x6D4B;&#x8BD5;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x6EE1;&#x8DB3;&#x67D0;&#x79CD;&#x6761;&#x4EF6;&#x3002;&#x8BE5;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A; test &#x65B9;&#x6CD5;&#xFF0C;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x6CDB;&#x578B;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x793A;&#x4F8B;&#xFF1A;</p>
+<p>&#x7528;&#x6765;&#x6D4B;&#x8BD5;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x6EE1;&#x8DB3;&#x67D0;&#x79CD;&#x6761;&#x4EF6;&#x3002;&#x8BE5;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A; test &#x65B9;&#x6CD5;&#xFF0C;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x6CDB;&#x578B;&#x5BF9;&#x8C61;&#xFF08;T&#xFF09;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#xFF08;boolean&#xFF09;&#xFF0C;&#x51FD;&#x6570;&#x63CF;&#x8FF0;&#x7B26;&#x4E3A; <code>T -&gt; boolean</code>&#x3002;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x793A;&#x4F8B;&#xFF1A;</p>
 <pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token keyword">boolean</span> <span class="token function">judge</span><span class="token punctuation">(</span>T t<span class="token punctuation">,</span> Predicate<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> p<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -519,25 +526,45 @@ VoidInterface v <span class="token operator">=</span> a <span class="token opera
      * Evaluates this predicate on the given argument.
      *
      * @param t the input argument
-     * @return {@code true} if the input argument matches the predicate,
-     * otherwise {@code false}
+     * @return true if the input argument matches the predicate,
+     * otherwise false
      */</span>
     <span class="token keyword">boolean</span> <span class="token function">test</span><span class="token punctuation">(</span>T t<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+    <span class="token comment" spellcheck="true">/**
+     * Returns a composed predicate that represents a short-circuiting logical
+     * AND of this predicate and another.  When evaluating the composed
+     * predicate, if this predicate is false, then the other
+     * predicate is not evaluated.
+     */</span>
     <span class="token keyword">default</span> Predicate<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token function">and</span><span class="token punctuation">(</span>Predicate<span class="token operator">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> T<span class="token operator">&gt;</span> other<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         Objects<span class="token punctuation">.</span><span class="token function">requireNonNull</span><span class="token punctuation">(</span>other<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span>t<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token function">test</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> other<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
+    <span class="token comment" spellcheck="true">/**
+     * Returns a predicate that represents the logical negation of this
+     * predicate.
+     */</span>
     <span class="token keyword">default</span> Predicate<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token function">negate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span>t<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token operator">!</span><span class="token function">test</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
+    <span class="token comment" spellcheck="true">/**
+     * Returns a composed predicate that represents a short-circuiting logical
+     * OR of this predicate and another.  When evaluating the composed
+     * predicate, if this predicate is true, then the other
+     * predicate is not evaluated.
+     */</span>
     <span class="token keyword">default</span> Predicate<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token function">or</span><span class="token punctuation">(</span>Predicate<span class="token operator">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> T<span class="token operator">&gt;</span> other<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         Objects<span class="token punctuation">.</span><span class="token function">requireNonNull</span><span class="token punctuation">(</span>other<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span>t<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token function">test</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span> <span class="token operator">||</span> other<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
+    <span class="token comment" spellcheck="true">/**
+     * Returns a predicate that tests if two arguments are equal according
+     * to {@link Objects#equals(Object, Object)}.
+     */</span>
     <span class="token keyword">static</span> <span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> Predicate<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token function">isEqual</span><span class="token punctuation">(</span>Object targetRef<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span>null <span class="token operator">==</span> targetRef<span class="token punctuation">)</span>
                 <span class="token operator">?</span> Objects<span class="token operator">:</span><span class="token operator">:</span>isNull
@@ -560,8 +587,41 @@ VoidInterface v <span class="token operator">=</span> a <span class="token opera
 false
 true
 </code></pre><p>&#x53E6;&#x5916; and &#x548C; or &#x65B9;&#x6CD5;&#x662F;&#x6309;&#x7167;&#x5728;&#x8868;&#x8FBE;&#x5F0F;&#x94FE;&#x4E2D;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x4ECE;&#x5DE6;&#x5411;&#x53F3;&#x786E;&#x5B9A;&#x4F18;&#x5148;&#x7EA7;&#x7684;&#x3002;&#x56E0;&#x6B64; <code>a.or(b).and(c)</code> &#x53EF;&#x4EE5;&#x770B;&#x4F5C; <code>(a || b) &amp;&amp; c</code>&#x3002;</p>
+<h3 id="bipredicate"><a name="bipredicate" class="anchor-navigation-ex-anchor" href="#bipredicate"><i class="fa fa-link" aria-hidden="true"></i></a>BiPredicate</h3>
+<p>BiPredicate &#x9488;&#x5BF9;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#xFF08;T, U&#xFF09;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#xFF0C;&#x51FD;&#x6570;&#x63CF;&#x8FF0;&#x7B26;&#x4E3A; <code>(T, U) -&gt; boolean</code>&#x3002;&#x4E0B;&#x9762;&#x662F;&#x8BE5;&#x63A5;&#x53E3;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<pre class="language-"><code class="lang-java"><span class="token comment" spellcheck="true">/**
+ * Represents a predicate (boolean-valued function) of two arguments.  This is
+ * the two-arity specialization of {@link Predicate}.
+ */</span>
+<span class="token annotation punctuation">@FunctionalInterface</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">BiPredicate</span><span class="token operator">&lt;</span>T<span class="token punctuation">,</span> U<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">boolean</span> <span class="token function">test</span><span class="token punctuation">(</span>T t<span class="token punctuation">,</span> U u<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">default</span> BiPredicate<span class="token operator">&lt;</span>T<span class="token punctuation">,</span> U<span class="token operator">&gt;</span> <span class="token function">and</span><span class="token punctuation">(</span>BiPredicate<span class="token operator">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> T<span class="token punctuation">,</span> <span class="token operator">?</span> <span class="token keyword">super</span> U<span class="token operator">&gt;</span> other<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Objects<span class="token punctuation">.</span><span class="token function">requireNonNull</span><span class="token punctuation">(</span>other<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>T t<span class="token punctuation">,</span> U u<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token function">test</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> u<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> other<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> u<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">default</span> BiPredicate<span class="token operator">&lt;</span>T<span class="token punctuation">,</span> U<span class="token operator">&gt;</span> <span class="token function">negate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>T t<span class="token punctuation">,</span> U u<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token operator">!</span><span class="token function">test</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> u<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">default</span> BiPredicate<span class="token operator">&lt;</span>T<span class="token punctuation">,</span> U<span class="token operator">&gt;</span> <span class="token function">or</span><span class="token punctuation">(</span>BiPredicate<span class="token operator">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> T<span class="token punctuation">,</span> <span class="token operator">?</span> <span class="token keyword">super</span> U<span class="token operator">&gt;</span> other<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Objects<span class="token punctuation">.</span><span class="token function">requireNonNull</span><span class="token punctuation">(</span>other<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>T t<span class="token punctuation">,</span> U u<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token function">test</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> u<span class="token punctuation">)</span> <span class="token operator">||</span> other<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> u<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testBiPredicate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    BiPredicate<span class="token operator">&lt;</span>Integer<span class="token punctuation">,</span> Integer<span class="token operator">&gt;</span> b <span class="token operator">=</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> x <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> y <span class="token operator">&gt;</span> <span class="token number">3</span><span class="token punctuation">;</span>
+    <span class="token keyword">boolean</span> r <span class="token operator">=</span> b<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h3 id="consumer"><a name="consumer" class="anchor-navigation-ex-anchor" href="#consumer"><i class="fa fa-link" aria-hidden="true"></i></a>Consumer</h3>
-<p>Consumer&#xFF08;&#x6D88;&#x8D39;&#x8005;&#xFF09;&#xFF0C;&#x9488;&#x5BF9;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x67D0;&#x79CD;&#x64CD;&#x4F5C;&#xFF08;&#x6D88;&#x8D39;&#x5BF9;&#x8C61;&#xFF09;&#x3002;&#x8BE5;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A; accept &#x65B9;&#x6CD5;&#xFF0C;&#x4F1A;&#x5C06;&#x8BE5;&#x65B9;&#x6CD5;&#x4F5C;&#x7528;&#x4E8E;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x8981;&#x7ED9;&#x793A;&#x4F8B;&#xFF1A;</p>
+<p>Consumer&#xFF08;&#x6D88;&#x8D39;&#x8005;&#xFF09;&#xFF0C;&#x9488;&#x5BF9;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x67D0;&#x79CD;&#x64CD;&#x4F5C;&#xFF08;&#x6D88;&#x8D39;&#x5BF9;&#x8C61;&#xFF09;&#x3002;&#x8BE5;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A; accept &#x65B9;&#x6CD5;&#xFF0C;&#x4F1A;&#x5C06;&#x8BE5;&#x65B9;&#x6CD5;&#x4F5C;&#x7528;&#x4E8E;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#xFF0C;&#x51FD;&#x6570;&#x63CF;&#x8FF0;&#x7B26;&#x4E3A; <code>T -&gt; void</code>&#x3002;&#x4E0B;&#x9762;&#x662F;&#x4F7F;&#x7528;&#x793A;&#x4F8B;&#xFF1A;</p>
 <pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token keyword">void</span> <span class="token function">consume</span><span class="token punctuation">(</span>T t<span class="token punctuation">,</span> Consumer<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> c<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     c<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -575,7 +635,7 @@ true
 <p>&#x4E0B;&#x9762;&#x662F; Consumer &#x7C7B;&#x7684;&#x4EE3;&#x7801;</p>
 <pre class="language-"><code class="lang-java"><span class="token comment" spellcheck="true">/**
  * Represents an operation that accepts a single input argument and returns no
- * result. Unlike most other functional interfaces, {@code Consumer} is expected
+ * result. Unlike most other functional interfaces, Consumer is expected
  * to operate via side-effects.
  */</span>
 <span class="token annotation punctuation">@FunctionalInterface</span>
@@ -588,6 +648,13 @@ true
      */</span>
     <span class="token keyword">void</span> <span class="token function">accept</span><span class="token punctuation">(</span>T t<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+    <span class="token comment" spellcheck="true">/**
+     * Returns a composed  Consumer that performs, in sequence, this
+     * operation followed by the after operation. If performing either
+     * operation throws an exception, it is relayed to the caller of the
+     * composed operation.  If performing this operation throws an exception,
+     * the after operation will not be performed.
+     */</span>
     <span class="token keyword">default</span> Consumer<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token function">andThen</span><span class="token punctuation">(</span>Consumer<span class="token operator">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> T<span class="token operator">&gt;</span> after<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         Objects<span class="token punctuation">.</span><span class="token function">requireNonNull</span><span class="token punctuation">(</span>after<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span>T t<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span> <span class="token function">accept</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span> after<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -606,8 +673,37 @@ true
 </code></pre>
 <p>&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4E3A;&#xFF1A;</p>
 <pre class="language-"><code>dcba1234
-</code></pre><h3 id="supplier"><a name="supplier" class="anchor-navigation-ex-anchor" href="#supplier"><i class="fa fa-link" aria-hidden="true"></i></a>Supplier</h3>
-<p>Supplier&#xFF08;&#x4F9B;&#x5E94;&#x5546;&#xFF09;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6CDB;&#x578B;&#x5BF9;&#x8C61;&#xFF08;&#x751F;&#x4EA7;&#x5BF9;&#x8C61;&#xFF09;&#x3002;&#x8BE5;&#x63A5;&#x53E3;&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A; get &#x65B9;&#x6CD5;&#xFF0C;&#x6CA1;&#x6709;&#x65B9;&#x6CD5;&#x53C2;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x6CDB;&#x578B;&#x5BF9;&#x8C61;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x793A;&#x4F8B;</p>
+</code></pre><h3 id="biconsumer"><a name="biconsumer" class="anchor-navigation-ex-anchor" href="#biconsumer"><i class="fa fa-link" aria-hidden="true"></i></a>BiConsumer</h3>
+<p>BiConsumer &#x9488;&#x5BF9;&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;&#xFF08;T, U&#xFF09;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;&#x63CF;&#x8FF0;&#x7B26;&#x4E3A; <code>(T, U) -&gt; void</code>&#x3002;&#x4E0B;&#x9762;&#x662F;&#x8BE5;&#x63A5;&#x53E3;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<pre class="language-"><code class="lang-java"><span class="token comment" spellcheck="true">/**
+ * Represents an operation that accepts two input arguments and returns no
+ * result.  This is the two-arity specialization of  Consumer.
+ * Unlike most other functional interfaces, BiConsumer is expected
+ * to operate via side-effects.
+ */</span>
+<span class="token annotation punctuation">@FunctionalInterface</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">BiConsumer</span><span class="token operator">&lt;</span>T<span class="token punctuation">,</span> U<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">void</span> <span class="token function">accept</span><span class="token punctuation">(</span>T t<span class="token punctuation">,</span> U u<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">default</span> BiConsumer<span class="token operator">&lt;</span>T<span class="token punctuation">,</span> U<span class="token operator">&gt;</span> <span class="token function">andThen</span><span class="token punctuation">(</span>BiConsumer<span class="token operator">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> T<span class="token punctuation">,</span> <span class="token operator">?</span> <span class="token keyword">super</span> U<span class="token operator">&gt;</span> after<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Objects<span class="token punctuation">.</span><span class="token function">requireNonNull</span><span class="token punctuation">(</span>after<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>l<span class="token punctuation">,</span> r<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+            <span class="token function">accept</span><span class="token punctuation">(</span>l<span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            after<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span>l<span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testBiConsumer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    BiConsumer<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> String<span class="token operator">&gt;</span> b <span class="token operator">=</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>x <span class="token operator">+</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    b<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span><span class="token string">&quot;111&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;222&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="supplier"><a name="supplier" class="anchor-navigation-ex-anchor" href="#supplier"><i class="fa fa-link" aria-hidden="true"></i></a>Supplier</h3>
+<p>Supplier&#xFF08;&#x4F9B;&#x5E94;&#x5546;&#xFF09;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6CDB;&#x578B;&#x5BF9;&#x8C61;&#xFF08;&#x751F;&#x4EA7;&#x5BF9;&#x8C61;&#xFF09;&#x3002;&#x8BE5;&#x63A5;&#x53E3;&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A; get &#x65B9;&#x6CD5;&#xFF0C;&#x6CA1;&#x6709;&#x65B9;&#x6CD5;&#x53C2;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x6CDB;&#x578B;&#x5BF9;&#x8C61;&#xFF0C;&#x51FD;&#x6570;&#x63CF;&#x8FF0;&#x7B26;&#x4E3A; <code>() -&gt; T</code>&#x3002;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x793A;&#x4F8B;</p>
 <pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> T <span class="token function">supplier</span><span class="token punctuation">(</span>Supplier<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> s<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -631,7 +727,7 @@ true
 <span class="token punctuation">}</span>
 </code></pre>
 <h3 id="function"><a name="function" class="anchor-navigation-ex-anchor" href="#function"><i class="fa fa-link" aria-hidden="true"></i></a>Function</h3>
-<p>Function &#x63A5;&#x53E3;&#x5C31;&#x76F8;&#x5F53;&#x4E8E; <code>y=f(x)</code> &#x4E2D;&#x7684;&#x51FD;&#x6570; f&#xFF0C;&#x63A5;&#x6536;&#x4E00;&#x4E2A; x&#xFF08;argument&#xFF09;&#x8FD4;&#x56DE;&#x8BA1;&#x7B97;&#x503C; y&#xFF08;result&#xFF09;&#x3002;&#x8BE5;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A; apply &#x65B9;&#x6CD5;&#xFF0C;&#x63A5;&#x6536;&#x4E00;&#x4E2A; T &#x7C7B;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; R &#x7C7B;&#x578B;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x793A;&#x4F8B;&#xFF1A;</p>
+<p>Function &#x63A5;&#x53E3;&#x5C31;&#x76F8;&#x5F53;&#x4E8E; <code>y=f(x)</code> &#x4E2D;&#x7684;&#x51FD;&#x6570; f&#xFF0C;&#x63A5;&#x6536;&#x4E00;&#x4E2A; x&#xFF08;argument&#xFF09;&#x8FD4;&#x56DE;&#x8BA1;&#x7B97;&#x503C; y&#xFF08;result&#xFF09;&#x3002;&#x8BE5;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A; apply &#x65B9;&#x6CD5;&#xFF0C;&#x63A5;&#x6536;&#x4E00;&#x4E2A; T &#x7C7B;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; R &#x7C7B;&#x578B;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x51FD;&#x6570;&#x63CF;&#x8FF0;&#x7B26;&#x4E3A; <code>T -&gt; R</code>&#x3002;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x793A;&#x4F8B;&#xFF1A;</p>
 <pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token operator">&lt;</span>T<span class="token punctuation">,</span> R<span class="token operator">&gt;</span> R <span class="token function">func</span><span class="token punctuation">(</span>T t<span class="token punctuation">,</span> Function<span class="token operator">&lt;</span>T<span class="token punctuation">,</span> R<span class="token operator">&gt;</span> f<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> f<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -655,16 +751,31 @@ true
      */</span>
     R <span class="token function">apply</span><span class="token punctuation">(</span>T t<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+    <span class="token comment" spellcheck="true">/**
+     * Returns a composed function that first applies the before
+     * function to its input, and then applies this function to the result.
+     * If evaluation of either function throws an exception, it is relayed to
+     * the caller of the composed function.
+     */</span>
     <span class="token keyword">default</span> <span class="token operator">&lt;</span>V<span class="token operator">&gt;</span> Function<span class="token operator">&lt;</span>V<span class="token punctuation">,</span> R<span class="token operator">&gt;</span> <span class="token function">compose</span><span class="token punctuation">(</span>Function<span class="token operator">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> V<span class="token punctuation">,</span> <span class="token operator">?</span> <span class="token keyword">extends</span> <span class="token class-name">T</span><span class="token operator">&gt;</span> before<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         Objects<span class="token punctuation">.</span><span class="token function">requireNonNull</span><span class="token punctuation">(</span>before<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span>V v<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token function">apply</span><span class="token punctuation">(</span>before<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
+    <span class="token comment" spellcheck="true">/**
+     * Returns a composed function that first applies this function to
+     * its input, and then applies the after function to the result.
+     * If evaluation of either function throws an exception, it is relayed to
+     * the caller of the composed function.
+     */</span>
     <span class="token keyword">default</span> <span class="token operator">&lt;</span>V<span class="token operator">&gt;</span> Function<span class="token operator">&lt;</span>T<span class="token punctuation">,</span> V<span class="token operator">&gt;</span> <span class="token function">andThen</span><span class="token punctuation">(</span>Function<span class="token operator">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> R<span class="token punctuation">,</span> <span class="token operator">?</span> <span class="token keyword">extends</span> <span class="token class-name">V</span><span class="token operator">&gt;</span> after<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         Objects<span class="token punctuation">.</span><span class="token function">requireNonNull</span><span class="token punctuation">(</span>after<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span>T t<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> after<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token function">apply</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
+    <span class="token comment" spellcheck="true">/**
+     * Returns a function that always returns its input argument.
+     */</span>
     <span class="token keyword">static</span> <span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> Function<span class="token operator">&lt;</span>T<span class="token punctuation">,</span> T<span class="token operator">&gt;</span> <span class="token function">identity</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> t <span class="token operator">-</span><span class="token operator">&gt;</span> t<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
@@ -691,7 +802,7 @@ f.andThen(g) =&gt; g(f(x))
 <span class="token punctuation">}</span>
 </code></pre>
 <h4 id="unaryoperator"><a name="unaryoperator" class="anchor-navigation-ex-anchor" href="#unaryoperator"><i class="fa fa-link" aria-hidden="true"></i></a>UnaryOperator</h4>
-<p>UnaryOperator &#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684; Function&#xFF0C;&#x8868;&#x793A;&#x64CD;&#x4F5C;&#x6570;&#x548C;&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x540C;&#x4E00;&#x79CD;&#x7C7B;&#x578B;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x8BE5;&#x63A5;&#x53E3;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<p>UnaryOperator &#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684; Function&#xFF0C;&#x8868;&#x793A;&#x64CD;&#x4F5C;&#x6570;&#x548C;&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x540C;&#x4E00;&#x79CD;&#x7C7B;&#x578B;&#xFF0C;&#x51FD;&#x6570;&#x63CF;&#x8FF0;&#x7B26;&#x4E3A; <code>T -&gt; T</code>&#x3002;&#x4E0B;&#x9762;&#x662F;&#x8BE5;&#x63A5;&#x53E3;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;</p>
 <pre class="language-"><code class="lang-java"><span class="token comment" spellcheck="true">/**
  * Represents an operation on a single operand that produces a result of the
  * same type as its operand.  This is a specialization of {@code Function} for
@@ -700,6 +811,9 @@ f.andThen(g) =&gt; g(f(x))
 <span class="token annotation punctuation">@FunctionalInterface</span>
 <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">UnaryOperator</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token keyword">extends</span> <span class="token class-name">Function</span><span class="token operator">&lt;</span>T<span class="token punctuation">,</span> T<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
 
+    <span class="token comment" spellcheck="true">/**
+     * Returns a unary operator that always returns its input argument.
+     */</span>
     <span class="token keyword">static</span> <span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> UnaryOperator<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token function">identity</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> t <span class="token operator">-</span><span class="token operator">&gt;</span> t<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
@@ -711,6 +825,181 @@ f.andThen(g) =&gt; g(f(x))
     System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>u<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
+<h3 id="bifunction"><a name="bifunction" class="anchor-navigation-ex-anchor" href="#bifunction"><i class="fa fa-link" aria-hidden="true"></i></a>BiFunction</h3>
+<p>BiFunction &#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF08;T, U&#xFF09;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x7ED3;&#x679C;&#xFF08;R&#xFF09;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E; z=f(x, y)&#xFF0C;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;&#x63CF;&#x8FF0;&#x7B26;&#x4E3A; <code>(T, U) -&gt; R</code>&#x3002;&#x4E0B;&#x9762;&#x662F;&#x8BE5;&#x63A5;&#x53E3;&#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<pre class="language-"><code class="lang-java"><span class="token comment" spellcheck="true">/**
+ * Represents a function that accepts two arguments and produces a result.
+ * This is the two-arity specialization of Function.
+ */</span>
+<span class="token annotation punctuation">@FunctionalInterface</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">BiFunction</span><span class="token operator">&lt;</span>T<span class="token punctuation">,</span> U<span class="token punctuation">,</span> R<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * Applies this function to the given arguments.
+     *
+     * @param t the first function argument
+     * @param u the second function argument
+     * @return the function result
+     */</span>
+    R <span class="token function">apply</span><span class="token punctuation">(</span>T t<span class="token punctuation">,</span> U u<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+    <span class="token comment" spellcheck="true">/**
+     * Returns a composed function that first applies this function to
+     * its input, and then applies the {@code after} function to the result.
+     * If evaluation of either function throws an exception, it is relayed to
+     * the caller of the composed function.
+     */</span>
+    <span class="token keyword">default</span> <span class="token operator">&lt;</span>V<span class="token operator">&gt;</span> BiFunction<span class="token operator">&lt;</span>T<span class="token punctuation">,</span> U<span class="token punctuation">,</span> V<span class="token operator">&gt;</span> <span class="token function">andThen</span><span class="token punctuation">(</span>Function<span class="token operator">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> R<span class="token punctuation">,</span> <span class="token operator">?</span> <span class="token keyword">extends</span> <span class="token class-name">V</span><span class="token operator">&gt;</span> after<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Objects<span class="token punctuation">.</span><span class="token function">requireNonNull</span><span class="token punctuation">(</span>after<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>T t<span class="token punctuation">,</span> U u<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> after<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token function">apply</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> u<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testBiFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    BiFunction<span class="token operator">&lt;</span>Integer<span class="token punctuation">,</span> Double<span class="token punctuation">,</span> String<span class="token operator">&gt;</span> b <span class="token operator">=</span> <span class="token punctuation">(</span>i<span class="token punctuation">,</span> d<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> String<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>i <span class="token operator">+</span> d<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    String r <span class="token operator">=</span> b<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="binaryoperator"><a name="binaryoperator" class="anchor-navigation-ex-anchor" href="#binaryoperator"><i class="fa fa-link" aria-hidden="true"></i></a>BinaryOperator</h4>
+<p>BinaryOperator &#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684; BiFunction&#xFF0C;&#x8868;&#x793A;&#x63A5;&#x6536;&#x7684;&#x53C2;&#x6570;&#x548C;&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#x90FD;&#x662F;&#x540C;&#x4E00;&#x79CD;&#x7C7B;&#x578B; T&#xFF0C;&#x51FD;&#x6570;&#x63CF;&#x8FF0;&#x7B26;&#x4E3A; <code>(T, T) -&gt; T</code>&#x3002;&#x4E0B;&#x9762;&#x662F;&#x8BE5;&#x63A5;&#x53E3;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<pre class="language-"><code class="lang-java"><span class="token comment" spellcheck="true">/**
+ * Represents an operation upon two operands of the same type, producing a result
+ * of the same type as the operands.  This is a specialization of
+ * BiFunction for the case where the operands and the result are all of
+ * the same type.
+ */</span>
+<span class="token annotation punctuation">@FunctionalInterface</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">BinaryOperator</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token keyword">extends</span> <span class="token class-name">BiFunction</span><span class="token operator">&lt;</span>T<span class="token punctuation">,</span>T<span class="token punctuation">,</span>T<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/**
+     * Returns a BinaryOperator which returns the lesser of two elements
+     * according to the specified Comparator.
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> BinaryOperator<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token function">minBy</span><span class="token punctuation">(</span>Comparator<span class="token operator">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> T<span class="token operator">&gt;</span> comparator<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Objects<span class="token punctuation">.</span><span class="token function">requireNonNull</span><span class="token punctuation">(</span>comparator<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> comparator<span class="token punctuation">.</span><span class="token function">compare</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token number">0</span> <span class="token operator">?</span> a <span class="token operator">:</span> b<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * Returns a  BinaryOperator which returns the greater of two elements
+     * according to the specified Comparator.
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> BinaryOperator<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token function">maxBy</span><span class="token punctuation">(</span>Comparator<span class="token operator">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> T<span class="token operator">&gt;</span> comparator<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Objects<span class="token punctuation">.</span><span class="token function">requireNonNull</span><span class="token punctuation">(</span>comparator<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> comparator<span class="token punctuation">.</span><span class="token function">compare</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">?</span> a <span class="token operator">:</span> b<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x793A;&#x4F8B;:</p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testBinaryOperator</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    BinaryOperator<span class="token operator">&lt;</span>Integer<span class="token operator">&gt;</span> b <span class="token operator">=</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> x <span class="token operator">+</span> y<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> z <span class="token operator">=</span> b<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>z<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    BinaryOperator<span class="token operator">&lt;</span>Integer<span class="token operator">&gt;</span> min <span class="token operator">=</span> BinaryOperator<span class="token punctuation">.</span><span class="token function">minBy</span><span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> x <span class="token operator">-</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// &#x8F93;&#x51FA; 1</span>
+    z <span class="token operator">=</span> min<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>z<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// &#x8F93;&#x51FA; 3</span>
+    BinaryOperator<span class="token operator">&lt;</span>Integer<span class="token operator">&gt;</span> max <span class="token operator">=</span> BinaryOperator<span class="token punctuation">.</span><span class="token function">maxBy</span><span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> x <span class="token operator">-</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    z <span class="token operator">=</span> max<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>z<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="primitive-specializations"><a name="primitive-specializations" class="anchor-navigation-ex-anchor" href="#primitive-specializations"><i class="fa fa-link" aria-hidden="true"></i></a>Primitive specializations</h3>
+<p>&#x5728;&#x4E0A;&#x9762;&#x63D0;&#x5230;&#x7684;&#x63A5;&#x53E3;&#x4E2D;&#xFF0C;&#x90FD;&#x662F;&#x63A5;&#x53D7;&#x6CDB;&#x578B;&#x53C2;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x6CDB;&#x578B;&#x53C2;&#x6570;&#x53EA;&#x80FD;&#x662F;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5BF9;&#x4E8E; int &#x8FD9;&#x6837;&#x7684;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#xFF0C;&#x6211;&#x4EEC;&#x8981;&#x9996;&#x5148;&#x88C5;&#x7BB1;&#xFF08;boxing&#xFF09;&#x6210; Integer &#x7C7B;&#x578B;&#xFF0C;&#x5728;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x518D;&#x62C6;&#x7BB1;&#xFF08;unboxing&#xFF09;&#x6210; int&#x3002;&#x867D;&#x7136; Java &#x63D0;&#x4F9B;&#x4E86;&#x81EA;&#x52A8;&#x88C5;&#x7BB1;&#x673A;&#x5236;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x6027;&#x80FD;&#x65B9;&#x9762;&#x662F;&#x8981;&#x4ED8;&#x51FA;&#x4EE3;&#x4EF7;&#x7684;&#x3002;&#x6240;&#x4EE5;&#x5BF9;&#x4E8E;&#x4E0A;&#x8FF0;&#x7684;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&#xFF0C;Java 8 &#x63D0;&#x4F9B;&#x4E86;&#x9488;&#x5BF9;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x4EE5;&#x6B64;&#x6765;&#x907F;&#x514D;&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x662F;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x65F6;&#x7684;&#x81EA;&#x52A8;&#x88C5;&#x7BB1;&#x64CD;&#x4F5C;&#x3002;&#x4EE5; Predicate &#x4E3A;&#x4F8B;&#xFF0C;&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x8981;&#x68C0;&#x6D4B;&#x4E00;&#x4E2A; int &#x662F;&#x5426;&#x6EE1;&#x8DB3;&#x67D0;&#x4E2A;&#x6761;&#x4EF6;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; IntPredicate &#xFF1A;</p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testIntPredicate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    IntPredicate ip <span class="token operator">=</span> x <span class="token operator">-</span><span class="token operator">&gt;</span> x <span class="token operator">&gt;</span> <span class="token number">3</span><span class="token punctuation">;</span>
+    <span class="token keyword">boolean</span> r <span class="token operator">=</span> ip<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x662F; IntPredicate &#x7684;&#x5B9A;&#x4E49;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5B83;&#x5C06;&#x6CDB;&#x578B; T &#x6539;&#x4E3A;&#x4E86;&#x57FA;&#x672C;&#x7C7B;&#x578B; int&#x3002;</p>
+<pre class="language-"><code class="lang-java"><span class="token comment" spellcheck="true">/**
+ * Represents a predicate (boolean-valued function) of one {@code int}-valued
+ * argument. This is the {@code int}-consuming primitive type specialization of
+ * {@link Predicate}.
+ */</span>
+<span class="token annotation punctuation">@FunctionalInterface</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IntPredicate</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">boolean</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token keyword">int</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">default</span> IntPredicate <span class="token function">and</span><span class="token punctuation">(</span>IntPredicate other<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Objects<span class="token punctuation">.</span><span class="token function">requireNonNull</span><span class="token punctuation">(</span>other<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token function">test</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> other<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">default</span> IntPredicate <span class="token function">negate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token operator">!</span><span class="token function">test</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">default</span> IntPredicate <span class="token function">or</span><span class="token punctuation">(</span>IntPredicate other<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Objects<span class="token punctuation">.</span><span class="token function">requireNonNull</span><span class="token punctuation">(</span>other<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token function">test</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">||</span> other<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x4E0B;&#x8868;&#x5217;&#x51FA;&#x4E86; Java 8 &#x4E2D;&#x7684;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&#x4EE5;&#x53CA;&#x5176;&#x5BF9;&#x5E94;&#x7684;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x7248;&#x672C;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;</th>
+<th>&#x51FD;&#x6570;&#x63CF;&#x8FF0;&#x7B26;</th>
+<th style="text-align:left">&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x7248;&#x672C;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Predicate<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>T</span><span class="token punctuation">&gt;</span></span></code></td>
+<td><code>T -&gt; boolean</code></td>
+<td style="text-align:left"><code>IntPredicate, LongPredicate, DoublePredicate</code></td>
+</tr>
+<tr>
+<td><code>BiPredicate<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>T</span><span class="token punctuation">&gt;</span></span></code></td>
+<td><code>(L, R) -&gt; boolean</code></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td><code>Consumer<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>T</span><span class="token punctuation">&gt;</span></span></code></td>
+<td><code>T -&gt; void</code></td>
+<td style="text-align:left"><code>IntConsumer, LongConsumer, DoubleConsumer</code></td>
+</tr>
+<tr>
+<td><code>BiConsumer<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>T,</span> <span class="token attr-name">U</span><span class="token punctuation">&gt;</span></span></code></td>
+<td><code>(T, U) -&gt; void</code></td>
+<td style="text-align:left"><code>ObjIntConsumer<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>T</span><span class="token punctuation">&gt;</span></span>, ObjLongConsumer<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>T</span><span class="token punctuation">&gt;</span></span>, ObjDoubleConsumer<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>T</span><span class="token punctuation">&gt;</span></span></code></td>
+</tr>
+<tr>
+<td><code>Supplier<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>T</span><span class="token punctuation">&gt;</span></span></code></td>
+<td><code>() -&gt; T</code></td>
+<td style="text-align:left"><code>BooleanSupplier, IntSupplier, LongSupplier, DoubleSupplier</code></td>
+</tr>
+<tr>
+<td><code>Function<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>T,</span> <span class="token attr-name">R</span><span class="token punctuation">&gt;</span></span></code></td>
+<td><code>T -&gt; R</code></td>
+<td style="text-align:left"><code>IntFunction<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>R</span><span class="token punctuation">&gt;</span></span>, IntToDoubleFunction, IntToLongFunction, LongFunction<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>R</span><span class="token punctuation">&gt;</span></span>, LongToDoubleFunction, LongToIntFunction, DoubleFunction<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>R</span><span class="token punctuation">&gt;</span></span>, ToIntFunction<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>T</span><span class="token punctuation">&gt;</span></span>, ToDoubleFunction<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>T</span><span class="token punctuation">&gt;</span></span>, ToLongFunction<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>T</span><span class="token punctuation">&gt;</span></span></code></td>
+</tr>
+<tr>
+<td><code>UnaryOperator<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>T</span><span class="token punctuation">&gt;</span></span></code></td>
+<td><code>T -&gt; T</code></td>
+<td style="text-align:left"><code>IntUnaryOperator, LongUnaryOperator, DoubleUnaryOperator</code></td>
+</tr>
+<tr>
+<td><code>BiFunction<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>T,</span> <span class="token attr-name">U,</span> <span class="token attr-name">R</span><span class="token punctuation">&gt;</span></span></code></td>
+<td><code>(T, U) -&gt; R</code></td>
+<td style="text-align:left"><code>ToIntBiFunction<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>T,</span> <span class="token attr-name">U</span><span class="token punctuation">&gt;</span></span></code>, <code>ToLongBiFunction<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>T,</span> <span class="token attr-name">U</span><span class="token punctuation">&gt;</span></span></code>, <code>ToDoubleBiFunction<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>T,</span> <span class="token attr-name">U</span><span class="token punctuation">&gt;</span></span></code></td>
+</tr>
+<tr>
+<td><code>BinaryOperator<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>T</span><span class="token punctuation">&gt;</span></span></code></td>
+<td><code>(T, T) -&gt; T</code></td>
+<td style="text-align:left"><code>IntUnaryOperator, LongUnaryOperator, DoubleUnaryOperator</code></td>
+</tr>
+</tbody>
+</table>
 
                                 
                                 </section>
@@ -746,7 +1035,7 @@ f.andThen(g) =&gt; g(f(x))
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Lambda","level":"2.1","depth":1,"previous":{"title":"Java 8","level":"2","depth":0,"ref":"","articles":[{"title":"Lambda","level":"2.1","depth":1,"path":"java8/lambda.md","ref":"java8/lambda.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-highlight","-livereload","search-plus@^0.0.11","simple-page-toc@0.1.1","github@^2.0.0","edit-link@^2.0.2","prism@^2.1.0","prism-themes@^0.0.2","anchors@^0.7.1","disqus","sitemap-general@^0.1.1","anchor-navigation-ex@0.1.8","favicon@^0.0.2","3-ba@^0.9.0","fancybox","github-buttons@2.1.0","katex"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-base16-ateliersulphurpool.light.css"]},"disqus":{"useIdentifier":false,"shortName":"book-2"},"fancybox":{"helpers":{"buttons":{}}},"github":{"url":"https://github.com/zhangjikai/java-learn"},"simple-page-toc":{"maxDepth":4,"skipFirstH1":true},"donate":{"wechat":"https://zhangjikai.com/resource/weixin.png","alipay":"https://zhangjikai.com/resource/alipay.png","title":"","button":"赏","alipayText":"支付宝打赏","wechatText":"微信打赏"},"sitemap-general":{"prefix":"http://java.zhangjikai.com"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"isRewritePageTitle":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right"},"favicon":{"shortcut":"favicon.ico","bookmark":"favicon.ico"},"prism-themes":{},"github-buttons":{"repo":"zhangjikai/java-learn","types":["star"],"size":"small"},"3-ba":{"configuration":"auto","token":"ff100361cdce95dd4c8fb96b4009f7bc"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/zhangjikai/java-learn/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"search-plus":{}},"theme":"default","author":"zhangjikai","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Java Learn","language":"zh-hans","output.name":"site","links":{"sidebar":{"Home":"http://www.zhangjikai.com"}},"gitbook":"3.2.2","description":"Java 学习笔记"},"file":{"path":"java8/lambda.md","mtime":"2017-12-06T09:10:50.424Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-12-06T10:30:40.060Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Lambda","level":"2.1","depth":1,"previous":{"title":"Java 8","level":"2","depth":0,"ref":"","articles":[{"title":"Lambda","level":"2.1","depth":1,"path":"java8/lambda.md","ref":"java8/lambda.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-highlight","-livereload","search-plus@^0.0.11","simple-page-toc@0.1.1","github@^2.0.0","edit-link@^2.0.2","prism@^2.1.0","prism-themes@^0.0.2","anchors@^0.7.1","disqus","sitemap-general@^0.1.1","anchor-navigation-ex@0.1.8","favicon@^0.0.2","3-ba@^0.9.0","fancybox","github-buttons@2.1.0","katex"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-base16-ateliersulphurpool.light.css"]},"disqus":{"useIdentifier":false,"shortName":"book-2"},"fancybox":{"helpers":{"buttons":{}}},"github":{"url":"https://github.com/zhangjikai/java-learn"},"simple-page-toc":{"maxDepth":4,"skipFirstH1":true},"donate":{"wechat":"https://zhangjikai.com/resource/weixin.png","alipay":"https://zhangjikai.com/resource/alipay.png","title":"","button":"赏","alipayText":"支付宝打赏","wechatText":"微信打赏"},"sitemap-general":{"prefix":"http://java.zhangjikai.com"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"isRewritePageTitle":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right"},"favicon":{"shortcut":"favicon.ico","bookmark":"favicon.ico"},"prism-themes":{},"github-buttons":{"repo":"zhangjikai/java-learn","types":["star"],"size":"small"},"3-ba":{"configuration":"auto","token":"ff100361cdce95dd4c8fb96b4009f7bc"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/zhangjikai/java-learn/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"search-plus":{}},"theme":"default","author":"zhangjikai","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Java Learn","language":"zh-hans","output.name":"site","links":{"sidebar":{"Home":"http://www.zhangjikai.com"}},"gitbook":"3.2.2","description":"Java 学习笔记"},"file":{"path":"java8/lambda.md","mtime":"2017-12-07T04:46:41.185Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-12-07T04:52:38.518Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
