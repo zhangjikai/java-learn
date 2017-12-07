@@ -229,7 +229,7 @@ VoidInterface v = a -> a++;
 +--- UnaryOperator.java
 ```
 ### Predicate
-用来测试对象是否满足某种条件。该接口定义了一个 test 方法，接受一个泛型对象，并返回测试结果。下面是一个使用示例：
+用来测试对象是否满足某种条件。该接口定义了一个 test 方法，接受一个泛型对象（T），并返回测试结果（boolean），函数描述符为 `T -> boolean`。下面是一个使用示例：
 ```java
 public <T> boolean judge(T t, Predicate<T> p) {
     return p.test(t);
@@ -252,25 +252,45 @@ public interface Predicate<T> {
      * Evaluates this predicate on the given argument.
      *
      * @param t the input argument
-     * @return {@code true} if the input argument matches the predicate,
-     * otherwise {@code false}
+     * @return true if the input argument matches the predicate,
+     * otherwise false
      */
     boolean test(T t);
 
+    /**
+     * Returns a composed predicate that represents a short-circuiting logical
+     * AND of this predicate and another.  When evaluating the composed
+     * predicate, if this predicate is false, then the other
+     * predicate is not evaluated.
+     */
     default Predicate<T> and(Predicate<? super T> other) {
         Objects.requireNonNull(other);
         return (t) -> test(t) && other.test(t);
     }
 
+    /**
+     * Returns a predicate that represents the logical negation of this
+     * predicate.
+     */
     default Predicate<T> negate() {
         return (t) -> !test(t);
     }
 
+    /**
+     * Returns a composed predicate that represents a short-circuiting logical
+     * OR of this predicate and another.  When evaluating the composed
+     * predicate, if this predicate is true, then the other
+     * predicate is not evaluated.
+     */
     default Predicate<T> or(Predicate<? super T> other) {
         Objects.requireNonNull(other);
         return (t) -> test(t) || other.test(t);
     }
 
+    /**
+     * Returns a predicate that tests if two arguments are equal according
+     * to {@link Objects#equals(Object, Object)}.
+     */
     static <T> Predicate<T> isEqual(Object targetRef) {
         return (null == targetRef)
                 ? Objects::isNull
@@ -298,8 +318,44 @@ true
 ```
 另外 and 和 or 方法是按照在表达式链中的位置，从左向右确定优先级的。因此 `a.or(b).and(c)` 可以看作 `(a || b) && c`。
 
+### BiPredicate
+BiPredicate 针对两个参数对象（T, U）进行测试，函数描述符为 `(T, U) -> boolean`。下面是该接口的定义：
+```java
+/**
+ * Represents a predicate (boolean-valued function) of two arguments.  This is
+ * the two-arity specialization of {@link Predicate}.
+ */
+@FunctionalInterface
+public interface BiPredicate<T, U> {
+
+    boolean test(T t, U u);
+
+    default BiPredicate<T, U> and(BiPredicate<? super T, ? super U> other) {
+        Objects.requireNonNull(other);
+        return (T t, U u) -> test(t, u) && other.test(t, u);
+    }
+
+    default BiPredicate<T, U> negate() {
+        return (T t, U u) -> !test(t, u);
+    }
+
+    default BiPredicate<T, U> or(BiPredicate<? super T, ? super U> other) {
+        Objects.requireNonNull(other);
+        return (T t, U u) -> test(t, u) || other.test(t, u);
+    }
+}
+```
+下面是一个使用示例：
+```java
+public void testBiPredicate() {
+    BiPredicate<Integer, Integer> b = (x, y) -> x > 0 && y > 3;
+    boolean r = b.test(1, 4);
+    System.out.println(r);
+}
+```
+
 ### Consumer
-Consumer（消费者），针对对象进行某种操作（消费对象）。该接口定义了一个 accept 方法，会将该方法作用于目标对象。下面是要给示例：
+Consumer（消费者），针对对象进行某种操作（消费对象）。该接口定义了一个 accept 方法，会将该方法作用于目标对象，函数描述符为 `T -> void`。下面是使用示例：
 ```java
 public <T> void consume(T t, Consumer<T> c) {
     c.accept(t);
@@ -315,7 +371,7 @@ public void testConsume() {
 ```java
 /**
  * Represents an operation that accepts a single input argument and returns no
- * result. Unlike most other functional interfaces, {@code Consumer} is expected
+ * result. Unlike most other functional interfaces, Consumer is expected
  * to operate via side-effects.
  */
 @FunctionalInterface
@@ -328,6 +384,13 @@ public interface Consumer<T> {
      */
     void accept(T t);
 
+    /**
+     * Returns a composed  Consumer that performs, in sequence, this
+     * operation followed by the after operation. If performing either
+     * operation throws an exception, it is relayed to the caller of the
+     * composed operation.  If performing this operation throws an exception,
+     * the after operation will not be performed.
+     */
     default Consumer<T> andThen(Consumer<? super T> after) {
         Objects.requireNonNull(after);
         return (T t) -> { accept(t); after.accept(t); };
@@ -350,8 +413,40 @@ public void testConsume() {
 dcba1234
 ```
 
+### BiConsumer
+BiConsumer 针对两个对象（T, U）进行操作，对应的函数描述符为 `(T, U) -> void`。下面是该接口的定义：
+```java
+/**
+ * Represents an operation that accepts two input arguments and returns no
+ * result.  This is the two-arity specialization of  Consumer.
+ * Unlike most other functional interfaces, BiConsumer is expected
+ * to operate via side-effects.
+ */
+@FunctionalInterface
+public interface BiConsumer<T, U> {
+
+    void accept(T t, U u);
+
+    default BiConsumer<T, U> andThen(BiConsumer<? super T, ? super U> after) {
+        Objects.requireNonNull(after);
+
+        return (l, r) -> {
+            accept(l, r);
+            after.accept(l, r);
+        };
+    }
+}
+```
+下面是一个例子：
+```java
+public void testBiConsumer() {
+    BiConsumer<String, String> b = (x, y) -> System.out.println(x + y);
+    b.accept("111", "222");
+}
+```
+
 ### Supplier
-Supplier（供应商），返回一个泛型对象（生产对象）。该接口中定义了一个 get 方法，没有方法参数，返回值是一个泛型对象。下面是一个使用示例
+Supplier（供应商），返回一个泛型对象（生产对象）。该接口中定义了一个 get 方法，没有方法参数，返回值是一个泛型对象，函数描述符为 `() -> T`。下面是一个使用示例
 ```java
 public <T> T supplier(Supplier<T> s) {
     return s.get();
@@ -378,7 +473,7 @@ public interface Supplier<T> {
 ```
 
 ### Function
-Function 接口就相当于 `y=f(x)` 中的函数 f，接收一个 x（argument）返回计算值 y（result）。该接口定义了一个 apply 方法，接收一个 T 类型的对象，返回一个 R 类型的结果，下面是一个使用示例：
+Function 接口就相当于 `y=f(x)` 中的函数 f，接收一个 x（argument）返回计算值 y（result）。该接口定义了一个 apply 方法，接收一个 T 类型的对象，返回一个 R 类型的结果，函数描述符为 `T -> R`。下面是一个使用示例：
 ```java
 public <T, R> R func(T t, Function<T, R> f) {
     return f.apply(t);
@@ -404,16 +499,31 @@ public interface Function<T, R> {
      */
     R apply(T t);
 
+    /**
+     * Returns a composed function that first applies the before
+     * function to its input, and then applies this function to the result.
+     * If evaluation of either function throws an exception, it is relayed to
+     * the caller of the composed function.
+     */
     default <V> Function<V, R> compose(Function<? super V, ? extends T> before) {
         Objects.requireNonNull(before);
         return (V v) -> apply(before.apply(v));
     }
 
+    /**
+     * Returns a composed function that first applies this function to
+     * its input, and then applies the after function to the result.
+     * If evaluation of either function throws an exception, it is relayed to
+     * the caller of the composed function.
+     */
     default <V> Function<T, V> andThen(Function<? super R, ? extends V> after) {
         Objects.requireNonNull(after);
         return (T t) -> after.apply(apply(t));
     }
 
+    /**
+     * Returns a function that always returns its input argument.
+     */
     static <T> Function<T, T> identity() {
         return t -> t;
     }
@@ -444,8 +554,9 @@ public void testFunction() {
     System.out.println(i);
 }
 ```
+
 #### UnaryOperator
-UnaryOperator 是一种特殊的 Function，表示操作数和返回值是同一种类型，下面是该接口的定义：
+UnaryOperator 是一种特殊的 Function，表示操作数和返回值是同一种类型，函数描述符为 `T -> T`。下面是该接口的定义：
 ```java
 /**
  * Represents an operation on a single operand that produces a result of the
@@ -455,6 +566,9 @@ UnaryOperator 是一种特殊的 Function，表示操作数和返回值是同一
 @FunctionalInterface
 public interface UnaryOperator<T> extends Function<T, T> {
 
+    /**
+     * Returns a unary operator that always returns its input argument.
+     */
     static <T> UnaryOperator<T> identity() {
         return t -> t;
     }
@@ -468,3 +582,144 @@ public void testUnaryOperator() {
     System.out.println(u.apply(1));
 }
 ```
+
+### BiFunction
+BiFunction 接收两个参数（T, U），返回一个结果（R），类似于 z=f(x, y)，对应的函数描述符为 `(T, U) -> R`。下面是该接口的具体实现：
+```java
+/**
+ * Represents a function that accepts two arguments and produces a result.
+ * This is the two-arity specialization of Function.
+ */
+@FunctionalInterface
+public interface BiFunction<T, U, R> {
+
+    /**
+     * Applies this function to the given arguments.
+     *
+     * @param t the first function argument
+     * @param u the second function argument
+     * @return the function result
+     */
+    R apply(T t, U u);
+
+
+    /**
+     * Returns a composed function that first applies this function to
+     * its input, and then applies the {@code after} function to the result.
+     * If evaluation of either function throws an exception, it is relayed to
+     * the caller of the composed function.
+     */
+    default <V> BiFunction<T, U, V> andThen(Function<? super R, ? extends V> after) {
+        Objects.requireNonNull(after);
+        return (T t, U u) -> after.apply(apply(t, u));
+    }
+}
+```
+
+下面是一个使用示例：
+```java
+public void testBiFunction() {
+    BiFunction<Integer, Double, String> b = (i, d) -> String.valueOf(i + d);
+    String r = b.apply(1, 2.5);
+    System.out.println(r);
+}
+```
+
+#### BinaryOperator
+BinaryOperator 是一种特殊的 BiFunction，表示接收的参数和返回的结果都是同一种类型 T，函数描述符为 `(T, T) -> T`。下面是该接口的定义：
+```java
+/**
+ * Represents an operation upon two operands of the same type, producing a result
+ * of the same type as the operands.  This is a specialization of
+ * BiFunction for the case where the operands and the result are all of
+ * the same type.
+ */
+@FunctionalInterface
+public interface BinaryOperator<T> extends BiFunction<T,T,T> {
+    /**
+     * Returns a BinaryOperator which returns the lesser of two elements
+     * according to the specified Comparator.
+     */
+    public static <T> BinaryOperator<T> minBy(Comparator<? super T> comparator) {
+        Objects.requireNonNull(comparator);
+        return (a, b) -> comparator.compare(a, b) <= 0 ? a : b;
+    }
+
+    /**
+     * Returns a  BinaryOperator which returns the greater of two elements
+     * according to the specified Comparator.
+     */
+    public static <T> BinaryOperator<T> maxBy(Comparator<? super T> comparator) {
+        Objects.requireNonNull(comparator);
+        return (a, b) -> comparator.compare(a, b) >= 0 ? a : b;
+    }
+}
+```
+下面是一个使用示例:
+```java
+public void testBinaryOperator() {
+    BinaryOperator<Integer> b = (x, y) -> x + y;
+    int z = b.apply(1, 3);
+    System.out.println(z);
+
+    BinaryOperator<Integer> min = BinaryOperator.minBy((x, y) -> x - y);
+    // 输出 1
+    z = min.apply(1, 3);
+    System.out.println(z);
+
+    // 输出 3
+    BinaryOperator<Integer> max = BinaryOperator.maxBy((x, y) -> x - y);
+    z = max.apply(1, 3);
+    System.out.println(z);
+}
+```
+
+### Primitive specializations
+在上面提到的接口中，都是接受泛型参数，我们知道泛型参数只能是引用类型，也就是说对于 int 这样的基本类型，我们要首先装箱（boxing）成 Integer 类型，在使用的时候再拆箱（unboxing）成 int。虽然 Java 提供了自动装箱机制，但是在性能方面是要付出代价的。所以对于上述的函数式接口，Java 8 提供了针对基本类型的版本，以此来避免输入输出是基本类型时的自动装箱操作。以 Predicate 为例，假设我们要检测一个 int 是否满足某个条件，我们可以使用 IntPredicate ：
+```java
+public void testIntPredicate() {
+    IntPredicate ip = x -> x > 3;
+    boolean r = ip.test(4);
+    System.out.println(r);
+}
+```
+下面是 IntPredicate 的定义，我们可以看到它将泛型 T 改为了基本类型 int。
+```java
+/**
+ * Represents a predicate (boolean-valued function) of one {@code int}-valued
+ * argument. This is the {@code int}-consuming primitive type specialization of
+ * {@link Predicate}.
+ */
+@FunctionalInterface
+public interface IntPredicate {
+
+    boolean test(int value);
+
+    default IntPredicate and(IntPredicate other) {
+        Objects.requireNonNull(other);
+        return (value) -> test(value) && other.test(value);
+    }
+
+    default IntPredicate negate() {
+        return (value) -> !test(value);
+    }
+
+    default IntPredicate or(IntPredicate other) {
+        Objects.requireNonNull(other);
+        return (value) -> test(value) || other.test(value);
+    }
+}
+```
+下表列出了 Java 8 中的函数式接口以及其对应的基本类型版本：
+
+| 函数式接口 | 函数描述符 | 基本类型版本 |
+|-----|-----|:---|
+| `Predicate<T>` | `T -> boolean` | `IntPredicate, LongPredicate, DoublePredicate` |
+| `BiPredicate<T>` | `(L, R) -> boolean` | |
+| `Consumer<T>` | `T -> void` | `IntConsumer, LongConsumer, DoubleConsumer` |
+| `BiConsumer<T, U>` | `(T, U) -> void` | `ObjIntConsumer<T>, ObjLongConsumer<T>, ObjDoubleConsumer<T>` |
+| `Supplier<T>` | `() -> T` | `BooleanSupplier, IntSupplier, LongSupplier, DoubleSupplier` |
+| `Function<T, R>` | `T -> R` | `IntFunction<R>, IntToDoubleFunction, IntToLongFunction, LongFunction<R>, LongToDoubleFunction, LongToIntFunction, DoubleFunction<R>, ToIntFunction<T>, ToDoubleFunction<T>, ToLongFunction<T>` |
+| `UnaryOperator<T>` | `T -> T` | `IntUnaryOperator, LongUnaryOperator, DoubleUnaryOperator` |
+| `BiFunction<T, U, R>` | `(T, U) -> R` | `ToIntBiFunction<T, U>`, `ToLongBiFunction<T, U>`, `ToDoubleBiFunction<T, U>` |
+| `BinaryOperator<T>` |  `(T, T) -> T` | `IntUnaryOperator, LongUnaryOperator, DoubleUnaryOperator` |
