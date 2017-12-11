@@ -3,4 +3,5 @@
 <url> <loc>http://java.zhangjikai.com/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://java.zhangjikai.com/java8/lambda.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://java.zhangjikai.com/java8/方法引用.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://java.zhangjikai.com/java8/stream.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 </urlset>
