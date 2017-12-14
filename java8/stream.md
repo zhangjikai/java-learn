@@ -318,7 +318,12 @@ Function<Animal, ?> m2 = (a, ?) -> a.run();
 ```java
 Stream<R> s = mapper(t);
 ```
-上面的用法就是我们所说的 PECS （Producer Extends Consumer Super）
+上面的用法就是我们所说的 PECS （Producer Extends Consumer Super）元素：
+* 如果要从对象或者集合中获取 T 类型的数据，并且不需要写入，可以使用 `? extends` 通配符
+* 如果要向对象或者集合中写入 T 类型的数据，并且不需要读取，可以使用 `? super` 通配符
+* 如果既要存又要取，那么就不要用任何通配符。
 
-### reduce
-规约
+在上面的例子中，我们要向 mapper 对象中传入 T 类型，获取 `Stream<R>` 类型，所以统配符使用
+```java
+Function<? super T, ? extends Stream<? extends R>> mapper
+```
