@@ -314,7 +314,7 @@ Function<Animal, ?> m2 = (a, ?) -> a.run();
 ```
 由此我们可以知道当 Stream 中类型为 Cat 时，我们传入的 Function 接受类型可以是 Cat 或者 Cat 的父类，但不能是 Cat 的子类，所以在参数定义时加上 `? super T`，以便在编译阶段就可以发现错误。
 
-下面我们在看下 extends，mapper 的用法大致如下面的代码所示，流 s 中的数据类型要为 R 或者 R 的子类，所以在参数定义中使用 `? extends R` 表明 mapper 返回的流中的数据必须为 R 或者 R 的子类。
+下面我们在看下 extends，mapper 的用法大致如下面的代码所示，流 s 中的数据类型要为 R 或者 R 的子类，所以在参数定义中使用 `? extends R` 表明 mapper 返回流中的数据必须为 R 或者 R 的子类。
 ```java
 Stream<R> s = mapper(t);
 ```
@@ -327,3 +327,29 @@ Stream<R> s = mapper(t);
 ```java
 Function<? super T, ? extends Stream<? extends R>> mapper
 ```
+
+### reduce
+reduce 操作将流中所有的值规约成一个值（比如求和、求最大最小值），用函数式编程语言的术语来说，这也称为折叠（fold）。下面是一个使用示例：
+```java
+public void useReduce() {
+    Integer[] numbers = new Integer[] {1, 2, 4, 6, 10};
+
+    // 求和
+    int sum = Arrays.stream(numbers).reduce(0, Integer::sum);
+    System.out.println(sum);
+
+    // 求最大值
+    Optional<Integer> o = Arrays.stream(numbers).reduce(Integer::max);
+    System.out.println(o.get());
+
+    // 求最小值
+    o = Arrays.stream(numbers).reduce(Integer::min);
+    System.out.println(o.get());
+}
+```
+reduce 将外部迭代的过程抽象到了内部迭代中，有利于并行化的实现。
+
+### 操作状态
+* 对于 map 或者 filter 这样的流操作来说，它们操作的对象是流中的单个元素，在执行操作的时候，各个元素之间不会相互影响，这些操作一般都是无状态的（stateless），这里假设用户提供的 Lambda 表达式中没有内部状态
+* 诸如 reduce、sum、max 等操作，需要内部状态来累积结果，但是这种情况下内部状态很小，在 reduce 中就是一个int 或者 double。不论流中有多少元素要处理，内部状态都是有界的。
+* 对于 sort 或者 distinct 操作来说，操作时都需要知道之前操作的结果，这种操作的存储要求是无界的，我们通常把这些操作称为有状态操作（stateful）
