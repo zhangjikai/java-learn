@@ -353,3 +353,118 @@ reduce 将外部迭代的过程抽象到了内部迭代中，有利于并行化�
 * 对于 map 或者 filter 这样的流操作来说，它们操作的对象是流中的单个元素，在执行操作的时候，各个元素之间不会相互影响，这些操作一般都是无状态的（stateless），这里假设用户提供的 Lambda 表达式中没有内部状态。无状态的操作更利于并行。
 * 诸如 reduce、sum、max 等操作，需要内部状态来累积结果，但是这种情况下内部状态很小，在 reduce 中就是一个int 或者 double。不论流中有多少元素要处理，内部状态都是有界的。
 * 对于 sort 或者 distinct 操作来说，操作时都需要知道之前操作的结果，这种操作的存储要求是无界的，我们通常把这些操作称为有状态操作（stateful）
+
+
+## 收集数据
+使用 Stream 的 collect 方法可以收集流中的数据，collect 方法接收一个 Collector 类型的参数，用于指定收集的逻辑，下面是 collect 方法的定义：
+```java
+<R, A> R collect(Collector<? super T, A, R> collector);
+```
+Java 8 中 Collectors 提供了一些预定义的收集器，主要包含下面三个功能：
+* 规约和汇总：Reducing and summarizing stream elements to a single value
+* 分组：Grouping elements
+* 分区：Partitioning elements
+
+### 规约和汇总
+
+下面是使用预定义收集器进行规约和汇总的一些示例：
+
+```java
+public void summarize() {
+    Integer[] array = new Integer[]{1, 3, 6, 8, 3, 2};
+
+    // 求和
+    long count = Arrays.stream(array).collect(Collectors.counting());
+    System.out.println(count);
+
+    // 求最大值
+    Optional<Integer> max = Arrays.stream(array).collect(Collectors.maxBy(Comparator.comparing(i -> i)));
+    System.out.println(max.get());
+
+    // 求最小值
+    Optional<Integer> min = Arrays.stream(array).collect(Collectors.minBy(Comparator.comparing(i -> i)));
+    System.out.println(min.get());
+
+    // 求和， Collectors.summingLong 和 Collectors.summingDouble 用于 long 和 double 类型的求和
+    int total = Arrays.stream(array).collect(Collectors.summingInt(i -> i));
+    System.out.println(total);
+
+    // 求平均数， Collectors.averagingLong 和 Collectors.averagingDouble 用于求 long 和 double 类型的平均值
+    // 需要注意的是返回值均为 double
+    double average = Arrays.stream(array).collect(Collectors.averagingInt(i -> i));
+    System.out.println(average);
+
+    // 字符串连接
+    String text = Arrays.stream(array).map(String::valueOf).collect(Collectors.joining(", "));
+    System.out.println(text);
+
+    /**
+     * 获得多个统计信息，包括 sum, average, min, max 和 count
+     *
+     * Collectors.summarizingLong 和 Collectors.summarizingDouble 用于统计 long 和 double 类型
+     */
+    IntSummaryStatistics statistics = Arrays.stream(array).collect(Collectors.summarizingInt(i -> i));
+    System.out.println(statistics);
+}
+```
+
+Collectors 中提供了一个更为通用的 reducing 方法来实现规约功能，上面的方法可以看作是 reducing 方法的特例，我们来看下 reducing 方法的定义：
+```java
+/**
+ * Returns a {@code Collector} which performs a reduction of its
+ * input elements under a specified {@code BinaryOperator}.  The result
+ * is described as an {@code Optional<T>}.
+ *
+ * @param op a {@code BinaryOperator<T>} used to reduce the input elements
+ */
+public static <T> Collector<T, ?, Optional<T>> reducing(BinaryOperator<T> op)
+
+/**
+ * Returns a {@code Collector} which performs a reduction of its
+ * input elements under a specified {@code BinaryOperator} using the
+ * provided identity.
+ *
+ * @param identity the identity value for the reduction (also, the value
+ *                 that is returned when there are no input elements)
+ * @param op a {@code BinaryOperator<T>} used to reduce the input elements
+ */
+public static <T> Collector<T, ?, T> reducing(T identity, BinaryOperator<T> op)
+
+/**
+ * Returns a {@code Collector} which performs a reduction of its
+ * input elements under a specified mapping function and
+ * {@code BinaryOperator}. This is a generalization of
+ * {@link #reducing(Object, BinaryOperator)} which allows a transformation
+ * of the elements before reduction.
+ *
+ * @apiNote
+ * The {@code reducing()} collectors are most useful when used in a
+ * multi-level reduction, downstream of {@code groupingBy} or
+ * {@code partitioningBy}.  To perform a simple map-reduce on a stream,
+ * use {@link Stream#map(Function)} and {@link Stream#reduce(Object, BinaryOperator)}
+ * instead.
+ *
+ * @param identity the identity value for the reduction (also, the value
+ *                 that is returned when there are no input elements)
+ * @param mapper a mapping function to apply to each input value
+ * @param op a {@code BinaryOperator<U>} used to reduce the mapped values
+ */
+public static <T, U> Collector<T, ?, U> reducing(U identity,
+      Function<? super T, ? extends U> mapper, BinaryOperator<U> op)
+```
+我们来看下最后一个方法中的参数
+* `U indentity`: 规约操作的初始值，当流中没有元素时会返回该值。
+* `Function<> mapper`: 映射函数
+* `BinaryOperator<T> op`: 进行规约时使用的函数
+
+```java
+public void reducing() {
+   Integer[] array = new Integer[]{1, 3, 6, 8, 3, 2};
+
+   int total = Arrays.stream(array).collect(Collectors.reducing(0, Integer::sum));
+   System.out.println(total);
+
+   Optional<Integer> optional = Arrays.stream(array).collect(Collectors.reducing(Integer::sum));
+   System.out.println(optional.get());
+}
+```
