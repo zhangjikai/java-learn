@@ -360,10 +360,162 @@ reduce 将外部迭代的过程抽象到了内部迭代中，有利于并行化�
 ```java
 <R, A> R collect(Collector<? super T, A, R> collector);
 ```
-Java 8 中 Collectors 提供了一些预定义的收集器，主要包含下面三个功能：
+Java 8 中 Collectors 提供了一些预定义的收集器，主要包含下面四个功能：
+* 收集为集合
 * 规约和汇总：Reducing and summarizing stream elements to a single value
 * 分组：Grouping elements
 * 分区：Partitioning elements
+
+### 集合
+流中的数据可以被收集成 List、Set 或者 Map 的集合类，下面是相关函数的定义：
+```java
+/**
+ * Returns a {@code Collector} that accumulates the input elements into a
+ * new {@code Collection}, in encounter order.  The {@code Collection} is
+ * created by the provided factory.
+ * @param collectionFactory a {@code Supplier} which returns a new, empty
+ */
+public static <T, C extends Collection<T>> Collector<T, ?, C> toCollection(Supplier<C> collectionFactory)
+
+/**
+ * Returns a {@code Collector} that accumulates the input elements into a
+ * new {@code List}. There are no guarantees on the type, mutability,
+ * serializability, or thread-safety of the {@code List} returned; if more
+ * control over the returned {@code List} is required, use {@link #toCollection(Supplier)}.
+ */
+public static <T> Collector<T, ?, List<T>> toList()
+
+/**
+ * Returns a {@code Collector} that accumulates the input elements into a
+ * new {@code Set}. There are no guarantees on the type, mutability,
+ * serializability, or thread-safety of the {@code Set} returned; if more
+ * control over the returned {@code Set} is required, use
+ * {@link #toCollection(Supplier)}.
+ */
+public static <T> Collector<T, ?, Set<T>> toSet()
+
+/**
+ * Returns a {@code Collector} that accumulates elements into a
+ * {@code Map} whose keys and values are the result of applying the provided
+ * mapping functions to the input elements.
+ *
+ * <p>If the mapped
+ * keys contains duplicates (according to {@link Object#equals(Object)}),
+ * the value mapping function is applied to each equal element, and the
+ * results are merged using the provided merging function.  The {@code Map}
+ * is created by a provided supplier function.
+ *
+ * @implNote
+ * The returned {@code Collector} is not concurrent.  For parallel stream
+ * pipelines, the {@code combiner} function operates by merging the keys
+ * from one map into another, which can be an expensive operation.  If it is
+ * not required that results are merged into the {@code Map} in encounter
+ * order, using {@link #toConcurrentMap(Function, Function, BinaryOperator, Supplier)}
+ * may offer better parallel performance.
+ *
+ * @param keyMapper a mapping function to produce keys
+ * @param valueMapper a mapping function to produce values
+ * @param mergeFunction a merge function, used to resolve collisions between
+ *                      values associated with the same key, as supplied
+ *                      to {@link Map#merge(Object, Object, BiFunction)}
+ * @param mapSupplier a function which returns a new, empty {@code Map} into
+ *                    which the results will be inserted
+ */
+public static <T, K, U, M extends Map<K, U>>
+Collector<T, ?, M> toMap(Function<? super T, ? extends K> keyMapper,
+                            Function<? super T, ? extends U> valueMapper,
+                            BinaryOperator<U> mergeFunction,
+                            Supplier<M> mapSupplier) 
+
+/**
+ * Returns a {@code Collector} that accumulates elements into a
+ * {@code Map} whose keys and values are the result of applying the provided
+ * mapping functions to the input elements.
+ *
+ * <p>If the mapped
+ * keys contains duplicates (according to {@link Object#equals(Object)}),
+ * the value mapping function is applied to each equal element, and the
+ * results are merged using the provided merging function.
+ *
+ * @param keyMapper a mapping function to produce keys
+ * @param valueMapper a mapping function to produce values
+ * @param mergeFunction a merge function, used to resolve collisions between
+ *                      values associated with the same key, as supplied
+ *                      to {@link Map#merge(Object, Object, BiFunction)}
+ */
+public static <T, K, U>
+Collector<T, ?, Map<K,U>> toMap(Function<? super T, ? extends K> keyMapper,
+                                Function<? super T, ? extends U> valueMapper,
+                                BinaryOperator<U> mergeFunction) {
+    return toMap(keyMapper, valueMapper, mergeFunction, HashMap::new);
+}
+
+/**
+* Returns a {@code Collector} that accumulates elements into a
+* {@code Map} whose keys and values are the result of applying the provided
+* mapping functions to the input elements.
+*
+* <p>If the mapped keys contains duplicates (according to
+* {@link Object#equals(Object)}), an {@code IllegalStateException} is
+* thrown when the collection operation is performed.  If the mapped keys
+* may have duplicates, use {@link #toMap(Function, Function, BinaryOperator)}
+* instead.
+*
+* @param keyMapper a mapping function to produce keys
+* @param valueMapper a mapping function to produce values
+*/
+public static <T, K, U>
+Collector<T, ?, Map<K,U>> toMap(Function<? super T, ? extends K> keyMapper,
+                                Function<? super T, ? extends U> valueMapper) {
+   return toMap(keyMapper, valueMapper, throwingMerger(), HashMap::new);
+}
+```
+下面是使用示例：
+```java
+public void testCollection() {
+
+    Integer[] array = new Integer[]{1, 3, 1, 4, 6, 4, 7};
+
+    // 收集为 List（ArrayList），输出结果为：[1, 3, 1, 4, 6, 4, 7]
+    List<Integer> list = Arrays.stream(array).collect(Collectors.toList());
+    System.out.println(list);
+
+    // 收集为 Set（HashSet），输出结果为 [1, 3, 4, 6, 7]
+    Set<Integer> set = Arrays.stream(array).collect(Collectors.toSet());
+    System.out.println(set);
+
+    /*
+     * 在前面的示例中，toList 只能生成 ArrayList, toSet 只能生成 HashSet
+     * 所以又额外提供了一个 toCollection 允许用户传入一个 Supplier 对象，用于自定义集合类的类型
+     */
+    Collection<Integer> c = Arrays.stream(array).collect(Collectors.toCollection(LinkedList::new));
+    System.out.println(c);
+
+    /*
+     * 收集为 map（HashMap），第一个参数为 key 的映射，第二个参数为 value 的映射。
+     * 这里需要注意的是 key 值不能有重复。输出结果为：{1=1, 3=1, 4=1, 6=1, 7=1}
+     */
+    array = new Integer[]{1, 3, 6, 4, 7};
+    Map<Integer, Integer> map = Arrays.stream(array).collect(Collectors.toMap(i -> i, i -> 1));
+    System.out.println(map);
+
+    /*
+     * 第三个参数为冲突合并函数，当 key 值冲突时，会调用该函数合并 value 值
+     * 输出结果为：{1=2, 3=3, 4=8, 6=6, 7=7}
+     */
+    array = new Integer[]{1, 3, 1, 4, 6, 4, 7};
+    map = Arrays.stream(array).collect(Collectors.toMap(i -> i, i -> i, (a, b) -> a + b));
+    System.out.println(map);
+
+    /*
+     * 第四个参数用来自定义 Map 的类型
+     */
+    map = Arrays.stream(array).collect(Collectors.toMap(i -> i, i -> i, (a, b) -> a + b, TreeMap::new));
+    System.out.println(map);
+}
+```
+Collectors 也提供了 toConcurrentMap 的方法，这里不再赘述。
+
 
 ### 规约和汇总
 
