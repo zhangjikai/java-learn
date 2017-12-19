@@ -425,7 +425,7 @@ public static <T, K, U, M extends Map<K, U>>
 Collector<T, ?, M> toMap(Function<? super T, ? extends K> keyMapper,
                             Function<? super T, ? extends U> valueMapper,
                             BinaryOperator<U> mergeFunction,
-                            Supplier<M> mapSupplier) 
+                            Supplier<M> mapSupplier)
 
 /**
  * Returns a {@code Collector} that accumulates elements into a
@@ -619,4 +619,178 @@ public void reducing() {
    Optional<Integer> optional = Arrays.stream(array).collect(Collectors.reducing(Integer::sum));
    System.out.println(optional.get());
 }
+```
+
+### 分组
+可以使用 groupingBy 对数据进行分组处理。分组的结果是一个 Map，key 作为组别，value 作为值。下面看一下 groupingBy 的定义：
+```java
+/**
+ * Returns a {@code Collector} implementing a cascaded "group by" operation
+ * on input elements of type {@code T}, grouping elements according to a
+ * classification function, and then performing a reduction operation on
+ * the values associated with a given key using the specified downstream
+ * {@code Collector}.  The {@code Map} produced by the Collector is created
+ * with the supplied factory function.
+ *
+ * <p>The classification function maps elements to some key type {@code K}.
+ * The downstream collector operates on elements of type {@code T} and
+ * produces a result of type {@code D}. The resulting collector produces a
+ * {@code Map<K, D>}.
+ *
+ * @param classifier a classifier function mapping input elements to keys
+ * @param downstream a {@code Collector} implementing the downstream reduction
+ * @param mapFactory a function which, when called, produces a new empty
+ *                   {@code Map} of the desired type
+ */
+public static <T, K, D, A, M extends Map<K, D>> Collector<T, ?, M> groupingBy(
+                              Function<? super T, ? extends K> classifier,
+                              Supplier<M> mapFactory,
+                              Collector<? super T, A, D> downstream){}
+
+
+/**
+ * Returns a {@code Collector} implementing a cascaded "group by" operation
+ * on input elements of type {@code T}, grouping elements according to a
+ * classification function, and then performing a reduction operation on
+ * the values associated with a given key using the specified downstream
+ * {@code Collector}.
+ *
+ * <p>The classification function maps elements to some key type {@code K}.
+ * The downstream collector operates on elements of type {@code T} and
+ * produces a result of type {@code D}. The resulting collector produces a
+ * {@code Map<K, D>}.
+ *
+ * <p>There are no guarantees on the type, mutability,
+ * serializability, or thread-safety of the {@code Map} returned.
+ *
+ * @param classifier a classifier function mapping input elements to keys
+ * @param downstream a {@code Collector} implementing the downstream reduction
+ * @return a {@code Collector} implementing the cascaded group-by operation
+ */
+public static <T, K, A, D>
+Collector<T, ?, Map<K, D>> groupingBy(Function<? super T, ? extends K> classifier,
+                                      Collector<? super T, A, D> downstream) {
+    return groupingBy(classifier, HashMap::new, downstream);
+}
+
+/**
+ * Returns a {@code Collector} implementing a "group by" operation on
+ * input elements of type {@code T}, grouping elements according to a
+ * classification function, and returning the results in a {@code Map}.
+ *
+ * <p>The classification function maps elements to some key type {@code K}.
+ * The collector produces a {@code Map<K, List<T>>} whose keys are the
+ * values resulting from applying the classification function to the input
+ * elements, and whose corresponding values are {@code List}s containing the
+ * input elements which map to the associated key under the classification
+ * function.
+ *
+ * <p>There are no guarantees on the type, mutability, serializability, or
+ * thread-safety of the {@code Map} or {@code List} objects returned.
+ *
+ * @param classifier the classifier function mapping input elements to keys
+ * @return a {@code Collector} implementing the group-by operation
+ *
+ */
+public static <T, K> Collector<T, ?, Map<K, List<T>>>
+groupingBy(Function<? super T, ? extends K> classifier) {
+    return groupingBy(classifier, toList());
+}
+```
+我们看到 groupingBy 有三个重载的方法，我们主要看第一个方法中的参数：
+* `Function<? super T, ? extends K> classifier`：根据该函数的结果值来进行分类
+* `Supplier<M> mapFactory`: 生成 Map 对象，用于自定义 Map 类型
+* `Collector<? super T, A, D> downstream`: 对于分到同一组的对象，使用 downstream 函数进行 reduce
+
+我们来看下具体的示例。首先定义一个 Person 类，代码如下所示：
+```java
+public class Person {
+    private String name;
+    private String country;
+    private String gender;
+
+    public Person() {
+    }
+
+    public Person(String name, String country, String gender) {
+        this.name = name;
+        this.country = country;
+        this.gender = gender;
+    }
+
+    // 省略 getter 和 setter
+}
+```
+下面是使用示例：
+```java
+public void testGroup() {
+    List<Person> persons = new ArrayList<>();
+    persons.add(new Person("1", "aaa", "male"));
+    persons.add(new Person("2", "bbb", "female"));
+    persons.add(new Person("3", "ccc", "female"));
+    persons.add(new Person("4", "aaa", "female"));
+    persons.add(new Person("5", "bbb", "male"));
+    persons.add(new Person("6", "bbb", "male"));
+    persons.add(new Person("7", "aaa", "male"));
+    persons.add(new Person("8", "ccc", "male"));
+
+    // 按 country 分组
+    Map<String, List<Person>> personsByCity = persons.stream().collect(Collectors.groupingBy(Person::getCountry));
+    System.out.println(personsByCity);
+
+    // 多级分组，先按 country，再按 gender 分组
+    Map<String, Map<String, List<Person>>> personsByCityGender = persons.stream().collect(
+        Collectors.groupingBy(Person::getCountry, Collectors.groupingBy(Person::getGender)));
+    System.out.println(personsByCityGender);
+
+    // 按照 subgroup 分组收集
+    Map<String, Long> countriesCount = persons.stream().collect(
+        Collectors.groupingBy(Person::getCountry, Collectors.counting()));
+    System.out.println(countriesCount);
+}
+```
+下面是输出结果：
+```java
+{aaa=[Person{name='1', country='aaa', gender='male'}, Person{name='4', country='aaa', gender='female'}, Person{name='7', country='aaa', gender='male'}], ccc=[Person{name='3', country='ccc', gender='female'}, Person{name='8', country='ccc', gender='male'}], bbb=[Person{name='2', country='bbb', gender='female'}, Person{name='5', country='bbb', gender='male'}, Person{name='6', country='bbb', gender='male'}]}
+{aaa={female=[Person{name='4', country='aaa', gender='female'}], male=[Person{name='1', country='aaa', gender='male'}, Person{name='7', country='aaa', gender='male'}]}, ccc={female=[Person{name='3', country='ccc', gender='female'}], male=[Person{name='8', country='ccc', gender='male'}]}, bbb={female=[Person{name='2', country='bbb', gender='female'}], male=[Person{name='5', country='bbb', gender='male'}, Person{name='6', country='bbb', gender='male'}]}}
+{aaa=3, ccc=2, bbb=3}
+```
+### 分区
+分区是分组的一个特殊形式，分区使用一个 Predication 作为分类函数。分区将数据分为两组，true 和 false。下面是 partitaionBy 的定义：
+```java
+/**
+ * Returns a {@code Collector} which partitions the input elements according
+ * to a {@code Predicate}, and organizes them into a
+ * {@code Map<Boolean, List<T>>}.
+ *
+ * There are no guarantees on the type, mutability,
+ * serializability, or thread-safety of the {@code Map} returned.
+ *
+ * @param <T> the type of the input elements
+ * @param predicate a predicate used for classifying input elements
+ *
+ */
+public static <T>
+Collector<T, ?, Map<Boolean, List<T>>> partitioningBy(Predicate<? super T> predicate) {
+    return partitioningBy(predicate, toList());
+}
+
+/**
+ * Returns a {@code Collector} which partitions the input elements according
+ * to a {@code Predicate}, reduces the values in each partition according to
+ * another {@code Collector}, and organizes them into a
+ * {@code Map<Boolean, D>} whose values are the result of the downstream
+ * reduction.
+ *
+ * <p>There are no guarantees on the type, mutability,
+ * serializability, or thread-safety of the {@code Map} returned.
+ *
+ * @param predicate a predicate used for classifying input elements
+ * @param downstream a {@code Collector} implementing the downstream
+ *                   reduction
+ *
+ */
+public static <T, D, A>
+Collector<T, ?, Map<Boolean, D>> partitioningBy(Predicate<? super T> predicate,
+                                                Collector<? super T, A, D> downstream)
 ```
