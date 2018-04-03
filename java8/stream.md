@@ -812,4 +812,4 @@ Collector<T, ?, Map<Boolean, D>> partitioningBy(Predicate<? super T> predicate,
 |`reducing`| 规约操作产生的类型 |将流中的元素规约为一个值|
 |`collectingAndThen`|转换函数返回的类型|包裹另外一个收集器, 并对齐结果应用转换函数|
 |`groupingBy`|`Map<K, List<T>>`|分组|
-|`partitionBy`|`Map<Boolean, List<T>>`|分区|
+|`partitionBy`|`Map<Boolean, List<T>>`|分区| 
