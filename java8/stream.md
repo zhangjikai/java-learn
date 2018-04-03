@@ -794,3 +794,22 @@ public static <T, D, A>
 Collector<T, ?, Map<Boolean, D>> partitioningBy(Predicate<? super T> predicate,
                                                 Collector<? super T, A, D> downstream)
 ```
+
+### Collectors 类常用的静态方法
+
+| 方法名称 | 返回类型 | 功能 |
+| --- | --- | --- |
+| `toList` | `List<T>` | 收集为 List |
+|`toSet`|`Set<T>`|收集为 Set|
+|`toCollection`|`Collection<T>`| 收集为 Collection|
+|`counting`| `Long` | 计算流中的元素个数|
+| `summingInt`|`Integer`| 对整数流求和 |
+| `averagingInt`| `Double` | 对整数流求平均数 |
+| `summarizingInt`|`IntSummaryStatistics`| 收集流中属性的统计值,例如最大,最小,和以及平均数|
+| `joining` | `String` | 将流中的元素连接成字符串 |
+|`maxBy`| `Optional<T>`| 选出最大值 |
+|`minBy`| `Optional<T>`| 选出最小值 |
+|`reducing`| 规约操作产生的类型 |将流中的元素规约为一个值|
+|`collectingAndThen`|转换函数返回的类型|包裹另外一个收集器, 并对齐结果应用转换函数|
+|`groupingBy`|`Map<K, List<T>>`|分组|
+|`partitionBy`|`Map<Boolean, List<T>>`|分区|
