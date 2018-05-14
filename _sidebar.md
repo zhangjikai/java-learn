@@ -6,4 +6,7 @@
   - [方法引用](java8/方法引用.md)
   - [Stream](java8/stream.md)
   - [并行流](java8/并行流.md)
-  
+
+* Effective Java
+
+    - [创建和销毁对象](effective-java/创建和销毁对象.md)
