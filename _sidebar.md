@@ -10,5 +10,5 @@
 * Effective Java
 
     - [创建和销毁对象](effective-java/创建和销毁对象.md)
-
     - [Object 对象方法](effective-java/Object对象方法.md)
+    - [Lambdas and Streams](effective-java/lambda.md)
