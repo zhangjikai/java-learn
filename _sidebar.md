@@ -12,3 +12,4 @@
     - [创建和销毁对象](effective-java/创建和销毁对象.md)
     - [Object 对象方法](effective-java/Object对象方法.md)
     - [Lambdas and Streams](effective-java/lambda.md)
+    - [类和接口](effective-java/类和接口.md)
