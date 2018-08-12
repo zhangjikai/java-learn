@@ -18,3 +18,7 @@
     - [Buffer](nio/Buffer.md)
     - [Channel](nio/Channel.md)
     - [Selector](nio/Selector.md)
+
+* 其他
+    - [基础](其他/基础.md)
+    - [JVM](其他/JVM.md)
