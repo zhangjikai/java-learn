@@ -39,7 +39,7 @@
 * forEach 应该只用来输出结果，而不是用于计算。
 * 使用静态导入的方式引入 Collectors 的静态成员可以使流更具可读性。
 
-## 优先使用 Collection 而不是 Stream 作为返回值类型
+## 优先使用 Collection 而不是 Stream 作为返回值类型
 * 在公开的方法中，返回连续的数据序列最好使用 Collection 及其子类。
 * 不要为了返回 Collection 类型，而将数据量很大的数据存入内存中。
 
@@ -48,4 +48,4 @@
 * 不要轻易的并行化流。
 * 由 ArrayList, HashMap, HashSet, and ConcurrentHashMap instances; arrays; intranges; and long ranges 产生的流一般可以使用并行流提高性能
 * 并行流不仅有可能影响性能，还有可能影响程序的运行结果。
-* 在恰当的环境下，通过 parallel 函数对流进行并行处理可以实现和处理器数量相对应的线性加速比，
+* 在恰当的环境下，通过 parallel 函数对流进行并行处理可以实现和处理器数量相对应的线性加速比，

@@ -67,7 +67,7 @@ class Person implements Cloneable {
 }
 ```
 
-### 考虑实现 Comparable 接口
+### 考虑实现 Comparable 接口
 * Java7 之后所有的包装类都提供了 compare 静态方法，因此在compareTo 方法中不推荐直接使用 < 或者 > 运算符
 
 ```java
