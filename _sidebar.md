@@ -15,6 +15,7 @@
     - [类和接口](effective-java/类和接口.md)
     - [泛型](effective-java/泛型.md)
     - [枚举和注解](effective-java/枚举和注解.md)
+    - [方法](effective-java/方法.md)
 
 * NIO
     - [Buffer](nio/Buffer.md)
