@@ -16,6 +16,8 @@
     - [泛型](effective-java/泛型.md)
     - [枚举和注解](effective-java/枚举和注解.md)
     - [方法](effective-java/方法.md)
+    - [通用程序设计](effective-java/通用程序设计.md)
+    - [异常](effective-java/异常.md)
 
 * NIO
     - [Buffer](nio/Buffer.md)
