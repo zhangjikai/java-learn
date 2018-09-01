@@ -18,6 +18,8 @@
     - [方法](effective-java/方法.md)
     - [通用程序设计](effective-java/通用程序设计.md)
     - [异常](effective-java/异常.md)
+    - [并发](effective-java/并发.md)
+    - [序列化](effective-java/序列化.md)
 
 * NIO
     - [Buffer](nio/Buffer.md)
