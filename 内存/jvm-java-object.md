@@ -14,8 +14,7 @@
 * Heap - The heap is the run-time data area from which memory for all class instances and arrays is allocated.
 * Method area -  The method area is analogous to the storage area for compiled code of a conventional language or analogous to the "text" segment in an operating system process. It stores per-class structures such as the run-time constant pool, field and method data, and the code for methods and constructors, including the special methods used in class and instance initialization and interface
 initialization.
-* Native method stacks - An implementation of the Java Virtual Machine may use conventional stacks, colloquially called "C stacks," to support native methods (methods written in a language other than the Java programming language). Native method stacks may also be used by the implementation of an interpreter() for the Java Virtual Machine's
-instruction set in a language such as C。
+* Native method stacks - An implementation of the Java Virtual Machine may use conventional stacks, colloquially called "C stacks," to support native methods (methods written in a language other than the Java programming language). Native method stacks may also be used by the implementation of an interpreter for the Java Virtual Machine's instruction set in a language such as C。
 
 堆和方法区是所有类共享的，其中堆主要存储对象实体，方法区存储的信息比较多，主要包括下面几类：
 + 类的基本类型信息

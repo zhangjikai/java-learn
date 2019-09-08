@@ -27,7 +27,7 @@
     - [Selector](nio/Selector.md)
 
 * 内存相关
-    - [JVM如何保存Java对象](内存/java对象存储.md)
+    - [JVM如何保存Java对象](内存/jvm-java-object.md)
 
 * 其他
     - [基础](其他/基础.md)
