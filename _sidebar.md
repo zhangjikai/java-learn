@@ -26,6 +26,9 @@
     - [Channel](nio/Channel.md)
     - [Selector](nio/Selector.md)
 
+* 内存相关
+    - [JVM如何保存Java对象](内存/java对象存储.md)
+
 * 其他
     - [基础](其他/基础.md)
     - [JVM](其他/Jvm.md)
