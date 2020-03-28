@@ -32,7 +32,7 @@
 * 其他
     - [基础](其他/基础.md)
     - [JVM](其他/Jvm.md)
-    - [封装logger时打印原始调用点]()
+    - [封装logger时打印原始调用点](java/日志.md)
 
 * Mysql
     - [数据类型](mysql/数据类型.md)
